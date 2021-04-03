@@ -74,18 +74,18 @@ static llvm::cl::opt<bool>
              llvm::cl::desc("Write to store instead of havoc"), cl::init(false),
              cl::Hidden);
 
-static const Value *extractUniqueScalar(CallSite &cs) {
+static const Value *extractUniqueScalar(llvm::CallBase &CB) {
   if (!EnableUniqueScalars)
     return nullptr;
   else
-    return seahorn::shadow_dsa::extractUniqueScalar(cs);
+    return seahorn::shadow_dsa::extractUniqueScalar(CB);
 }
 
-static const Value *extractUniqueScalar(const CallInst *ci) {
+static const Value *extractUniqueScalar(const llvm::CallBase *ci) {
   if (!EnableUniqueScalars)
     return nullptr;
   else
-    return seahorn::shadow_dsa::extractUniqueScalar(ci);
+    return seahorn::shadow_dsa::extractUniqueScalar(*ci);
 }
 
 static bool isShadowMem(const Value &V, const Value **out) {
@@ -645,41 +645,40 @@ struct OpSemVisitor : public InstVisitor<OpSemVisitor>, OpSemBase {
       side(lhs, op0);
   }
 
-  void visitCallSite(CallSite CS) {
-    assert(CS.isCall());
-    const Function *f = CS.getCalledFunction();
+  void visitCallBase(CallBase &CB) {
+    assert(isa<CallInst>(CB));
+    const Function *f = CB.getCalledFunction();
 
-    Instruction &I = *CS.getInstruction();
-    BasicBlock &BB = *I.getParent();
+    BasicBlock &BB = *CB.getParent();
 
-    if (!m_sem.isTracked(I))
+    if (!m_sem.isTracked(CB))
       return;
 
     // -- unknown/indirect function call
     if (!f) {
       // XXX Use DSA and/or Devirt to handle better
       assert(m_fparams.size() == 3);
-      visitInstruction(I);
+      visitInstruction(CB);
       return;
     }
 
     const Function &F = *f;
-    const Function &PF = *I.getParent()->getParent();
+    const Function &PF = *CB.getParent()->getParent();
 
     // skip intrinsic functions, except for memory-related ones
-    if (F.isIntrinsic() && !isa<MemIntrinsic>(&I)) {
+    if (F.isIntrinsic() && !isa<MemIntrinsic>(&CB)) {
       assert(m_fparams.size() == 3);
       return;
     }
 
     if (F.getName().startswith("verifier.assume")) {
-      if (isa<UndefValue>(CS.getArgument(0))) {
-        WARN << "`undef` in assumption: " << I << " in BB: " << BB.getName()
+      if (isa<UndefValue>(CB.getOperand(0))) {
+        WARN << "`undef` in assumption: " << CB << " in BB: " << BB.getName()
              << "\n";
         return;
       }
 
-      Expr c = lookup(*CS.getArgument(0));
+      Expr c = lookup(*CB.getOperand(0));
       if (F.getName().equals("verifier.assume.not"))
         c = boolop::lneg(c);
 
@@ -687,8 +686,8 @@ struct OpSemVisitor : public InstVisitor<OpSemVisitor>, OpSemBase {
       // -- assumption is only active when error flag is false
       addCondSide(boolop::lor(m_s.read(m_sem.errorFlag(BB)), c));
     } else if (F.getName().equals("calloc") && m_inMem && m_outMem &&
-               m_sem.isTracked(I)) {
-      havoc(I);
+               m_sem.isTracked(CB)) {
+      havoc(CB);
       assert(m_fparams.size() == 3);
       if (IgnoreCalloc)
         m_side.push_back(mk<EQ>(m_outMem, m_inMem));
@@ -703,7 +702,7 @@ struct OpSemVisitor : public InstVisitor<OpSemVisitor>, OpSemBase {
               m_outMem, op::array::constArray(sort::intTy(m_efac), zeroE)));
         }
       }
-    } else if (MemSetInst *MSI = dyn_cast<MemSetInst>(&I)) {
+    } else if (MemSetInst *MSI = dyn_cast<MemSetInst>(&CB)) {
       if (m_inMem && m_outMem && m_sem.isTracked(*(MSI->getDest()))) {
         assert(m_fparams.size() == 3);
         if (IgnoreMemset)
@@ -730,7 +729,7 @@ struct OpSemVisitor : public InstVisitor<OpSemVisitor>, OpSemBase {
     // {
     //   Expr ein = m_s.read (m_sem.errorFlag ());
     //   Expr eout = m_s.havoc (m_sem.errorFlag ());
-    //   Expr cond = lookup (*CS.getArgument (0));
+    //   Expr cond = lookup (*CB.getOperand (0));
     //   m_side.push_back (boolop::limp (cond,
     //                                   mk<EQ> (ein, eout)));
     //   m_side.push_back (boolop::limp (boolop::lneg (cond), eout));
@@ -747,7 +746,7 @@ struct OpSemVisitor : public InstVisitor<OpSemVisitor>, OpSemBase {
       // error flag out
       m_fparams[2] = (m_s.havoc(m_sem.errorFlag(BB)));
 
-      CallSiteInfo csi(CS, m_fparams);
+      CallSiteInfo csi(CB, m_fparams);
       m_sem.execCallSite(csi, m_side, m_s);
 
       // reseting parameter structures
@@ -759,40 +758,40 @@ struct OpSemVisitor : public InstVisitor<OpSemVisitor>, OpSemBase {
       m_inRegions.clear();
       m_outRegions.clear();
     } else if (F.getName().startswith("shadow.mem")) {
-      if (!m_sem.isTracked(I))
+      if (!m_sem.isTracked(CB))
         return;
 
       if (F.getName().equals("shadow.mem.init"))
-        m_s.havoc(symb(I));
+        m_s.havoc(symb(CB));
       else if (F.getName().equals("shadow.mem.load")) {
-        const Value &v = *CS.getArgument(1);
+        const Value &v = *CB.getOperand(1);
         m_inMem = m_s.read(symb(v));
-        m_uniq = extractUniqueScalar(CS) != nullptr;
+        m_uniq = extractUniqueScalar(CB) != nullptr;
       } else if (F.getName().equals("shadow.mem.store")) {
-        m_inMem = m_s.read(symb(*CS.getArgument(1)));
-        m_outMem = m_s.havoc(symb(I));
-        m_uniq = extractUniqueScalar(CS) != nullptr;
+        m_inMem = m_s.read(symb(*CB.getOperand(1)));
+        m_outMem = m_s.havoc(symb(CB));
+        m_uniq = extractUniqueScalar(CB) != nullptr;
       } else if (F.getName().equals("shadow.mem.global.init")) {
-        m_inMem = m_s.read(symb(*CS.getArgument(1)));
-        m_outMem = m_s.havoc(symb(I));
+        m_inMem = m_s.read(symb(*CB.getOperand(1)));
+        m_outMem = m_s.havoc(symb(CB));
         m_side.push_back(mk<EQ>(m_outMem, m_inMem));
       } else if (F.getName().equals("shadow.mem.arg.ref"))
-        m_fparams.push_back(m_s.read(symb(*CS.getArgument(1))));
+        m_fparams.push_back(m_s.read(symb(*CB.getOperand(1))));
       else if (F.getName().equals("shadow.mem.arg.mod")) {
-        auto in_par = m_s.read(symb(*CS.getArgument(1)));
+        auto in_par = m_s.read(symb(*CB.getOperand(1)));
         m_fparams.push_back(in_par);
         m_inRegions.push_back(in_par);
-        auto out_par = m_s.havoc(symb(I));
+        auto out_par = m_s.havoc(symb(CB));
         m_fparams.push_back(out_par);
         m_outRegions.push_back(out_par);
       } else if (F.getName().equals("shadow.mem.arg.new"))
-        m_fparams.push_back(m_s.havoc(symb(I)));
+        m_fparams.push_back(m_s.havoc(symb(CB)));
       else if (!PF.getName().equals("main") &&
                F.getName().equals("shadow.mem.in")) {
-        m_s.read(symb(*CS.getArgument(1)));
+        m_s.read(symb(*CB.getOperand(1)));
       } else if (!PF.getName().equals("main") &&
                  F.getName().equals("shadow.mem.out")) {
-        m_s.read(symb(*CS.getArgument(1)));
+        m_s.read(symb(*CB.getOperand(1)));
       } else if (!PF.getName().equals("main") &&
                  F.getName().equals("shadow.mem.arg.init")) {
         // regions initialized in main are global. We want them to
@@ -819,7 +818,7 @@ struct OpSemVisitor : public InstVisitor<OpSemVisitor>, OpSemBase {
         m_outRegions.clear();
       }
 
-      visitInstruction(*CS.getInstruction());
+      visitInstruction(CB);
     }
   }
 
@@ -1208,7 +1207,7 @@ void UfoOpSem::execBr(SymStore &s, const BasicBlock &src, const BasicBlock &dst,
 
 // internal function only for debugging (avoids duplication of code)
 static void printCS(const CallSiteInfo &csi, const FunctionInfo &fi) {
-  errs() << "Call instruction: " << *csi.m_cs.getInstruction() << "\n";
+  errs() << "Call instruction: " << csi.m_cs << "\n";
   errs() << "Caller: " << *csi.m_cs.getCaller() << "\n";
   errs() << "Callee: " << *csi.m_cs.getCalledFunction() << "\n";
   // errs () << "Sum predicate: " << *fi.sumPred << "\n";
@@ -1234,7 +1233,7 @@ static void printCS(const CallSiteInfo &csi, const FunctionInfo &fi) {
 
 void UfoOpSem::execCallSite(CallSiteInfo &csi, ExprVector &side, SymStore &s) {
 
-  Instruction &I = *csi.m_cs.getInstruction();
+  Instruction &I = csi.m_cs;
   if (!isTracked(I))
     return;
 
@@ -1242,7 +1241,7 @@ void UfoOpSem::execCallSite(CallSiteInfo &csi, ExprVector &side, SymStore &s) {
 
   for (const Argument *arg : fi.args)
     csi.m_fparams.push_back(
-        s.read(symb(*csi.m_cs.getArgument(arg->getArgNo()))));
+        s.read(symb(*csi.m_cs.getOperand(arg->getArgNo()))));
   for (const GlobalVariable *gv : fi.globals)
     csi.m_fparams.push_back(s.read(symb(*gv)));
 
@@ -1264,7 +1263,7 @@ void UfoOpSem::execCallSite(CallSiteInfo &csi, ExprVector &side, SymStore &s) {
 void MemUfoOpSem::execCallSite(CallSiteInfo &csi, ExprVector &side,
                                SymStore &s) {
 
-  Instruction &I = *csi.m_cs.getInstruction();
+  Instruction &I = csi.m_cs;
   if (!isTracked(I))
     return;
 
@@ -1283,17 +1282,17 @@ void MemUfoOpSem::execCallSite(CallSiteInfo &csi, ExprVector &side,
   }
   processShadowMemsCallSite(csi);
 
-  CallSite &CS = csi.m_cs;
+  CallBase &CB = csi.m_cs;
   Graph &calleeG = ga.getSummaryGraph(*calleeF);
-  NodeSet &unsafeCallerNodes = m_preproc->getUnsafeCallerNodesCallSite(CS);
-  SimulationMapper &simMap = m_preproc->getSimulationCallSite(CS);
+  NodeSet &unsafeCallerNodes = m_preproc->getUnsafeCallerNodesCallSite(CB);
+  SimulationMapper &simMap = m_preproc->getSimulationCallSite(CB);
 
   unsigned init_params = g_im_stats.m_params_copied; // for statistics
 
   // generate literals that copy for arguments and global variables
   // this needs to be done before generating the literal for the call
   for (const Argument *arg : fi.args) {
-    Expr argE = s.read(symb(*CS.getArgument(arg->getArgNo())));
+    Expr argE = s.read(symb(*CB.getOperand(arg->getArgNo())));
     csi.m_fparams.push_back(argE);
     if (calleeG.hasCell(*arg)) { // checking that the argument is a pointer
       unsigned init_fields = g_im_stats.m_fields_copied;
@@ -1556,7 +1555,7 @@ void MemUfoOpSem::recVCGenMem(const Cell &c_callee, Expr ptr,
 void MemUfoOpSem::processShadowMemsCallSite(CallSiteInfo &csi) {
 
   unsigned i = csi.m_fparams.size() - 1;
-  Instruction *I = csi.m_cs.getInstruction()->getPrevNode();
+  Instruction *I = csi.m_cs.getPrevNode();
 
   // traversing backwards the "shadow.mem.arg." annotations
   while (I != nullptr) {

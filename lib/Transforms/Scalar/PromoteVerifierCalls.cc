@@ -3,7 +3,6 @@
 #include "seahorn/Analysis/SeaBuiltinsInfo.hh"
 #include "seahorn/Transforms/Instrumentation/GeneratePartialFnPass.hh"
 
-#include "llvm/IR/CallSite.h"
 #include "llvm/IR/InstIterator.h"
 
 #include "llvm/IR/IRBuilder.h"
@@ -157,20 +156,19 @@ bool PromoteVerifierCalls::runOnFunction(Function &F) {
       {"sea_tracking_off", {m_tracking_off, 0}},
       {"sea_free", {m_free, 1}}};
 
-  auto replaceFnWithOneArg = [](Instruction &I,
+  auto replaceFnWithOneArg = [](CallInst &I,
                                 std::pair<Function *, unsigned> f, Function &F,
                                 SmallVector<Instruction *, 16> &toKill,
                                 CallGraph *cg) {
     IRBuilder<> Builder(F.getContext());
     Builder.SetInsertPoint(&I);
-    CallSite CS(&I);
     CallInst *ci;
     if (f.second == 0) {
       ci = Builder.CreateCall(f.first);
     } else if (f.second == 1) {
-      ci = Builder.CreateCall(f.first, {CS.getArgument(0)});
+      ci = Builder.CreateCall(f.first, {I.getOperand(0)});
     } else if (f.second == 2) {
-      ci = Builder.CreateCall(f.first, {CS.getArgument(0), CS.getArgument(1)});
+      ci = Builder.CreateCall(f.first, {I.getOperand(0), I.getOperand(1)});
     }
     assert(ci);
     if (cg)
@@ -180,20 +178,19 @@ bool PromoteVerifierCalls::runOnFunction(Function &F) {
   };
 
   bool Changed = false;
-  for (auto &I : boost::make_iterator_range(inst_begin(F), inst_end(F))) {
+  for (auto &I : instructions(F)) {
     if (!isa<CallInst>(&I))
       continue;
 
     // // -- look through pointer casts
     // Value *v = I.stripPointerCasts ();
-    // CallSite CS (const_cast<Value*> (v));
 
-    CallSite CS(&I);
-    const Function *fn = CS.getCalledFunction();
+    CallInst &CI = cast<CallInst>(I);
+    const Function *fn = CI.getCalledFunction();
 
     // -- check if this is a call through a pointer cast
-    if (!fn && CS.getCalledValue())
-      fn = dyn_cast<const Function>(CS.getCalledValue()->stripPointerCasts());
+    if (!fn && CI.getCalledOperand())
+      fn = dyn_cast<const Function>(CI.getCalledOperand()->stripPointerCasts());
 
     if (fn && (fn->getName().equals("__VERIFIER_assume") ||
                fn->getName().equals("__VERIFIER_assert") ||
@@ -204,7 +201,7 @@ bool PromoteVerifierCalls::runOnFunction(Function &F) {
                fn->getName().equals("llvm.invariant") ||
                /** my suggested name for pagai invariants */
                fn->getName().equals("pagai.invariant"))) {
-      auto arg0 = CS.getArgument(0);
+      auto arg0 = CI.getOperand(0);
 
       CallInst *nfnCi = nullptr, *chkCi = nullptr;
       if (auto partialFn = extractPartialFnCall(arg0)) {
@@ -282,15 +279,15 @@ bool PromoteVerifierCalls::runOnFunction(Function &F) {
 
       toKill.push_back(&I);
     } else if (fn && functionMap.count(fn->getName())) {
-      replaceFnWithOneArg(I, functionMap.at(fn->getName()), F, toKill, cg);
+      replaceFnWithOneArg(CI, functionMap.at(fn->getName()), F, toKill, cg);
     } else if (fn && (fn->getName().equals(
                          "__VERIFIER_assert_if"))) { // sea_assert_if is the
                                                      // user facing name
       IRBuilder<> Builder(F.getContext());
       // arg0: antecedent
       // arg1: consequent
-      auto *arg0 = coerceToBool(CS.getArgument(0), Builder, I);
-      auto *arg1 = coerceToBool(CS.getArgument(1), Builder, I);
+      auto *arg0 = coerceToBool(CI.getOperand(0), Builder, I);
+      auto *arg1 = coerceToBool(CI.getOperand(1), Builder, I);
 
       CallInst *ci = Builder.CreateCall(m_assert_if, {arg0, arg1});
       if (cg)

@@ -17,11 +17,10 @@ class GetElementPtrInst;
 namespace seahorn {
 
 struct CallSiteInfo {
-
-  CallSiteInfo(CallSite &cs, ExprVector &fparams)
+  CallSiteInfo(CallBase &cs, ExprVector &fparams)
       : m_cs(cs), m_fparams(fparams) {}
 
-  CallSite &m_cs;
+  CallBase &m_cs;
   ExprVector &m_fparams;
 };
 

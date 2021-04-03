@@ -151,13 +151,14 @@ bool InterMemPreProc::runOnModule(Module &M) {
   return false;
 }
 
-NodeSet &InterMemPreProc::getUnsafeCallerNodesCallSite(const CallSite &cs) {
-  auto ns = m_unsafen_cs_caller.find(cs.getInstruction());
+NodeSet &InterMemPreProc::getUnsafeCallerNodesCallSite(const CallBase &cs) {
+  auto ns = m_unsafen_cs_caller.find(&cs);
   assert(ns != m_unsafen_cs_caller.end());
   return *ns->getSecond();
 }
-SimulationMapper &InterMemPreProc::getSimulationCallSite(const CallSite &cs) {
-  auto ns = m_sms.find(cs.getInstruction());
+
+SimulationMapper &InterMemPreProc::getSimulationCallSite(const CallBase &cs) {
+  auto ns = m_sms.find(&cs);
   assert(ns != m_sms.end());
 
   return *ns->getSecond();

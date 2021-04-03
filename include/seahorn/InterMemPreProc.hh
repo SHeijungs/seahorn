@@ -46,8 +46,8 @@ namespace seahorn {
      * This is used to compute which nodes are unsafe to copy.
      */
     bool runOnModule(llvm::Module &M);
-    NodeSet &getUnsafeCallerNodesCallSite(const llvm::CallSite &cs);
+    NodeSet &getUnsafeCallerNodesCallSite(const llvm::CallBase &cs);
     bool isSafeNode(NodeSet &unsafe, const seadsa::Node *n);
-    seadsa::SimulationMapper &getSimulationCallSite(const llvm::CallSite &cs);
+    seadsa::SimulationMapper &getSimulationCallSite(const llvm::CallBase &cb);
   };
 } // namespace seahorn
