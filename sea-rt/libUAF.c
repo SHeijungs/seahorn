@@ -13,6 +13,8 @@ extern bool __seahorn_UAF_nondet();
 
 char *__seahorn_UAF_malloc(size_t size){
 	char *result;
+	if(size == 0)
+	  return NULL;
 	if (__seahorn_UAF_nondet()) {
 		/*As per the specification malloc can fail at any time.
 		We model this non-deterministically*/
@@ -38,7 +40,7 @@ char *__seahorn_UAF_calloc(size_t nmemb, size_t lsize)
 		return NULL;
 	}
 	result = __seahorn_UAF_malloc(size);/*
-	if (result != NULL) { // slows down the analysis too much
+	if (result != NULL) { // either slows down the analysis too much or gets turned into memset by the compiler
 		for(char *i=result; i<result+size; ++i)
 		  *i=0;
 	}*/
