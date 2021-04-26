@@ -210,6 +210,12 @@ static llvm::cl::opt<bool> FatBoundsCheck(
     llvm::cl::desc(
         "Instrument buffer bounds check  using extended pointer bits"),
     llvm::cl::init(false));
+    
+static llvm::cl::opt<bool> instrUAF(
+    "instrUAF",
+    llvm::cl::desc(
+        "Instrument uaf and double-free checks. This requires linking with the uaflib-32 or uaflib-64 library"),
+    llvm::cl::init(false));
 
 static llvm::cl::opt<bool>
     ExternalizeFns("externalize-fns",
@@ -453,6 +459,8 @@ int main(int argc, char **argv) {
   } else if (FatBoundsCheck) {
     initializeFatBufferBoundsCheckPass(Registry);
     pm_wrapper.add(seahorn::createFatBufferBoundsCheckPass());
+  } else if (instrUAF) {
+    pm_wrapper.add(seahorn::createUAFPass());
   } else if (LowerIsDeref) {
     pm_wrapper.add(seahorn::createLowerIsDerefPass());
   } else if (AddBranchSentinelOpt) {

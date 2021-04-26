@@ -30,4 +30,15 @@ if(SEAHORN_BUILD_32_BIT_RT)
     ARCHIVE DESTINATION lib)
 endif()
 
-
+add_library(libUAF-32 libUAF.c)
+target_compile_options(libUAF-32 BEFORE PRIVATE -m32 -emit-llvm)
+add_library(libUAF-64 libUAF.c)
+target_compile_options(libUAF-64 BEFORE PRIVATE -m64 -emit-llvm)
+install(FILES $<TARGET_OBJECTS:libUAF-32> 
+  DESTINATION lib 
+  RENAME libUAF-32.bc
+)
+install(FILES $<TARGET_OBJECTS:libUAF-64> 
+  DESTINATION lib 
+  RENAME libUAF-64.bc
+)

@@ -13,4 +13,5 @@ add_llvm_library(SeaInstrumentation DISABLE_LLVM_LINK_LLVM_DYLIB
   FatBufferBoundsCheck.cc
   BranchSentinelPass.cc
   GeneratePartialFnPass.cc
+  instrUAF.cc
   )

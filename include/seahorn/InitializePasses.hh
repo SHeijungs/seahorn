@@ -4,6 +4,7 @@
 namespace llvm {
 void initializeSimpleMemoryCheckPass(PassRegistry &);
 void initializeFatBufferBoundsCheckPass(PassRegistry &);
+void initializeUAFPass(PassRegistry &);
 void initializeSeaBuiltinsInfoWrapperPassPass(PassRegistry &);
 void initializeGeneratePartialFnPassPass(PassRegistry &);
 void initializeLoopPeelerPassPass(PassRegistry &);
