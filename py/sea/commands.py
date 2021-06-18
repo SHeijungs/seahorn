@@ -1093,6 +1093,14 @@ class instrUAF(sea.LimitedCmd):
 
     def mk_arg_parser (self, ap):
         ap = super (instrUAF, self).mk_arg_parser (ap)
+        ap.add_argument ('-m', type=int, dest='machine',
+                         help='Machine architecture MACHINE:[32,64]', default=32)
+        ap.add_argument ('--uafVersion', type=int, dest='uaf_version', metavar='INT',
+                         help='Instrumentation version L:[1,2,3,4]', default=1)
+        add_bool_argument(ap, 'doubleFreeOnly', dest='doubleFreeOnly',
+                         help='Only instrument for double free, not use-after-free')
+        add_bool_argument(ap, 'moveStackAllocs', dest='moveStackAllocs',
+                         help='Move all stack allocations to the heap')
         add_in_out_args (ap)
         _add_S_arg (ap)
         return ap
@@ -1106,6 +1114,14 @@ class instrUAF(sea.LimitedCmd):
         if args.out_file is not None: argv.extend (['-o', args.out_file])
 
         argv.append ('-instrUAF')
+        if args.uaf_version is not None:
+            argv.append('-UAF{ver}'.format(ver=args.uaf_version));
+        if args.uaf_version is not None:
+            argv.append('-m{0}'.format(args.machine));
+        if args.doubleFreeOnly:
+            argv.append('--doubleFreeOnly')
+        if args.moveStackAllocs:
+            argv.append('--moveStackAllocs')
         
         # slots=false ==> use is_dereferenceable(...) instrumentation
         argv.append('--horn-bnd-chk-slots=false')
