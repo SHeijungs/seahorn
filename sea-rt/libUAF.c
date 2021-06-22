@@ -87,10 +87,10 @@ char * __seahorn_UAF_malloc4(size_t size){
   char *result=__seahorn_UAF_malloc_redir(size);
   if(!__seahorn_UAF_active&&__seahorn_UAF_nondet()){
     __seahorn_UAF_active=1;
-    __seahorn_UAF_bgn=result;
-    __seahorn_UAF_end=result+size;
+    assume(__seahorn_UAF_bgn==result);
+    assume(__seahorn_UAF_end=result+size);
   } else {
-    assume(result<__seahorn_UAF_bgn-size);
+    assume(result<__seahorn_UAF_bgn);
   }
 	return result;
 }
@@ -151,7 +151,7 @@ void __seahorn_UAF_free3(char*ptr){
 
 void __seahorn_UAF_free4(char*ptr){
   if(__seahorn_UAF_active&&ptr==__seahorn_UAF_bgn){
-    //assume(ptr<__seahorn_UAF_end);
+    assume(ptr<=__seahorn_UAF_end);
     sassert(!__seahorn_UAF_freed);
     __seahorn_UAF_freed=true;
   }
@@ -206,7 +206,7 @@ void __seahorn_UAF_use_prehook3(char*ptr){
 
 void __seahorn_UAF_use_prehook4(char*ptr) __attribute__ ((optnone)){
   if(__seahorn_UAF_active&&ptr>=__seahorn_UAF_bgn){
-    assume(ptr<__seahorn_UAF_end);
+    assume(ptr<=__seahorn_UAF_end);
     sassert(!__seahorn_UAF_freed);
   }
 }

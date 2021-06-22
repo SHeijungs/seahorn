@@ -327,6 +327,48 @@ class ClangWithLibUAF(sea.LimitedCmd):
     def stdout (self):
         return self.clangCmd.stdout
 
+class LinkObject(sea.LimitedCmd):
+    def __init__ (self, objName='', quiet=False):
+        super (LinkObject, self).__init__('LinkObject', 'Link an object', allow_extra=True)
+        self.linkCmd = None
+        self._objName = objName
+
+    def mk_arg_parser (self, ap):
+        ap = super (LinkObject, self).mk_arg_parser (ap)
+        ap.add_argument ('-m', type=int, dest='machine',
+                         help='Machine architecture MACHINE:[32,64]', default=32)
+        add_in_out_args (ap)
+        return ap
+
+    def name_out_file (self, in_files, args=None, work_dir=None):
+        assert (len (in_files) == 1)
+        ext = '.ln.bc'
+        return _remap_file_name (in_files[0], ext, work_dir)
+    
+    def run(self, args, extra):
+        cmd_name = which (['llvm-link-mp-10', 'llvm-link-10', 'llvm-link'])
+        if cmd_name is None: raise IOError ('llvm-link not found')
+        self.linkCmd = sea.ExtCmd (cmd_name,'',quiet)
+
+        argv = []
+        #if args.llvm_asm: argv.append ('-S')
+        if args.out_file is not None:
+            argv.extend (['-o', args.out_file])
+        argv.extend (args.in_files)
+        lib_dir = os.path.dirname (sys.argv[0])
+        lib_dir = os.path.dirname (lib_dir)
+        lib_dir = os.path.join (lib_dir, 'lib')
+        if args.machine == 32:
+          objFile = os.path.join (lib_dir, self._objName+'-32.bc')
+        else:
+          objFile = os.path.join (lib_dir, self._objName+'-64.bc')
+        argv.append(objFile)
+        return self.linkCmd.run (args, argv)
+    @property
+    def stdout (self):
+        return self.linkCmd.stdout
+
+
 class LinkRt(sea.LimitedCmd):
     """
     Create an executable by linking with sea-rt library
@@ -1824,4 +1866,4 @@ Fpf = sea.SeqCmd('fpf', 'clang|fat-bnd-check|fe|unroll|cut-loops|opt|horn --solv
 Spf = sea.SeqCmd('spf', 'clang|add-branch-sentinel|fat-bnd-check|fe|unroll|cut-loops|opt|horn --solve',
                  [Clang(), AddBranchSentinel(), FatBoundsCheck()] + FrontEnd.cmds + [Unroll(), CutLoops(), Seaopt(), Seahorn(solve=True)])
 Uaf = sea.SeqCmd('uaf', 'clang|instrUAF|fe|unroll|cut-loops|opt|horn --solve',
-                 [ClangWithLibUAF(), instrUAF()] + FrontEnd.cmds + [Unroll(), CutLoops(), Seaopt(), Seahorn(solve=True)])
+                 [Clang(), LinkObject(objName='libUAF'), instrUAF(), LinkObject(objName='mallocRedir')] + FrontEnd.cmds + [Unroll(), CutLoops(), Seaopt(), Seahorn(solve=True)])

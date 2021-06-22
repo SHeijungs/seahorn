@@ -42,3 +42,17 @@ install(FILES $<TARGET_OBJECTS:libUAF-64>
   DESTINATION lib 
   RENAME libUAF-64.bc
 )
+
+add_library(mallocRedir-32 mallocRedir.c)
+target_compile_options(mallocRedir-32 BEFORE PRIVATE -m32 -emit-llvm)
+add_library(mallocRedir-64 mallocRedir.c)
+target_compile_options(mallocRedir-64 BEFORE PRIVATE -m64 -emit-llvm)
+install(FILES $<TARGET_OBJECTS:mallocRedir-32> 
+  DESTINATION lib 
+  RENAME mallocRedir-32.bc
+)
+install(FILES $<TARGET_OBJECTS:mallocRedir-64> 
+  DESTINATION lib 
+  RENAME mallocRedir-64.bc
+)
+
