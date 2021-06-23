@@ -15,6 +15,7 @@ using namespace llvm;
 
 cl::opt<bool> doubleFreeOnly ("doubleFreeOnly", cl::desc("Only check for double free bugs, not use-after-free."));
 cl::opt<bool> moveStackAllocs ("moveStackAllocs", cl::desc("Move all stack allocations to the heap"));
+cl::opt<bool> replaceMemset ("replaceMemset", cl::desc("Replace memset and memcpy calls with code that simulates the memory use. Currently only for version 4"));
 
 
 enum bitWidthEnum {
@@ -120,18 +121,9 @@ namespace {
             instrumentUse(SI->getPointerOperand(), builder);
           }
         }
-        /*else if(CallBase *CB = dyn_cast<CallBase>(I)){
-          Function *fun = CB->getCalledFunction();
-          if(fun&&fun->getName()=="malloc"){
-            Instruction *Next = &*i+1;
-            builder.SetInsertPoint(Next);
-            instrumentMalloc(CB, builder);
-          }
-        }*/
         if(moveStackAllocs){
           if(AllocaInst *AI = dyn_cast<AllocaInst>(I)) { //we want to move all allocations to the heap so we can analyse them using our shadow memory
             freeList.push(instrumentAlloca(AI, builder, M));
-          //instrumentAlloca(AI, builder, M);
           }
           else if(ReturnInst *RI = dyn_cast<ReturnInst>(I)) {
             freeStackVariables(builder, freeList);
@@ -173,32 +165,29 @@ namespace {
           break;
       }
       //mallocPostHook = M.getFunction("__seahorn_UAF_mallocPostHook");
-      instrumentedMemset = M.getFunction("__seahorn_UAF_ms");
-      instrumentedMemcpy = M.getFunction("__seahorn_UAF_mc");
+      instrumentedMemset = M.getFunction("__seahorn_UAF_memset");
+      instrumentedMemcpy = M.getFunction("__seahorn_UAF_memcpy");
       if(Function *malloc = M.getFunction("malloc")){
         malloc->replaceAllUsesWith(instrumentedMalloc);
         malloc->eraseFromParent();
       }
-      /*if(Function *memset = M.getFunction("memset")){
-        memset->replaceAllUsesWith(instrumentedMemset);
-        memset->eraseFromParent();
-      }*/
-      
-      if(Function *memset = M.getFunction("llvm.memset.p0i8.i32")){
-        memset->replaceAllUsesWith(instrumentedMemset);
-        memset->eraseFromParent();
-      }
-      if(Function *memset = M.getFunction("llvm.memset.p0i8.i64")){
-        memset->replaceAllUsesWith(instrumentedMemset);
-        memset->eraseFromParent();
-      }
-      if(Function *memcpy = M.getFunction("llvm.memcpy.p0i8.p0i8.i32")){
-        memcpy->replaceAllUsesWith(instrumentedMemcpy);
-        memcpy->eraseFromParent();
-      }
-      if(Function *memcpy = M.getFunction("llvm.memcpy.p0i8.p0i8.i64")){
-        memcpy->replaceAllUsesWith(instrumentedMemcpy);
-        memcpy->eraseFromParent();
+      if(replaceMemset){
+        if(Function *memset = M.getFunction("llvm.memset.p0i8.i32")){
+          memset->replaceAllUsesWith(instrumentedMemset);
+          memset->eraseFromParent();
+        }
+        if(Function *memset = M.getFunction("llvm.memset.p0i8.i64")){
+          memset->replaceAllUsesWith(instrumentedMemset);
+          memset->eraseFromParent();
+        }
+        if(Function *memcpy = M.getFunction("llvm.memcpy.p0i8.p0i8.i32")){
+          memcpy->replaceAllUsesWith(instrumentedMemcpy);
+          memcpy->eraseFromParent();
+        }
+        if(Function *memcpy = M.getFunction("llvm.memcpy.p0i8.p0i8.i64")){
+          memcpy->replaceAllUsesWith(instrumentedMemcpy);
+          memcpy->eraseFromParent();
+        }
       }
       /*if(Function *calloc = M.getFunction("calloc"))
         calloc->replaceAllUsesWith(M.getFunction("__seahorn_UAF_calloc"));

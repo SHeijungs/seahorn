@@ -997,6 +997,8 @@ class instrUAF(sea.LimitedCmd):
                          help='Only instrument for double free, not use-after-free')
         add_bool_argument(ap, 'moveStackAllocs', dest='moveStackAllocs',
                          help='Move all stack allocations to the heap')
+        add_bool_argument(ap, 'replaceMemset', dest='replaceMemset',
+                         help='Replace memset and memcpy calls with code that simulates the memory use. Currently only for version 4')
         add_in_out_args (ap)
         _add_S_arg (ap)
         return ap
@@ -1018,6 +1020,8 @@ class instrUAF(sea.LimitedCmd):
             argv.append('--doubleFreeOnly')
         if args.moveStackAllocs:
             argv.append('--moveStackAllocs')
+        if args.replaceMemset:
+            argv.append('--replaceMemset')
         
         # slots=false ==> use is_dereferenceable(...) instrumentation
         argv.append('--horn-bnd-chk-slots=false')

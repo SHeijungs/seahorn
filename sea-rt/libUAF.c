@@ -211,14 +211,14 @@ void __seahorn_UAF_use_prehook4(char*ptr) __attribute__ ((optnone)){
   }
 }
 
-void __seahorn_UAF_ms(char *str, char c, size_t n, bool x) __attribute__ ((optnone)){
+void __seahorn_UAF_memset(char *str, char c, size_t n, bool x) __attribute__ ((optnone)){
   __seahorn_UAF_use_prehook4(str);
   //for(int i=0;i<n;++i)
     //str[i]=c;
   //return str;
 }
 
-void __seahorn_UAF_mc(char *str, char *str2, size_t n, bool x) __attribute__ ((optnone)){
+void __seahorn_UAF_memcpy(char *str, char *str2, size_t n, bool x) __attribute__ ((optnone)){
   __seahorn_UAF_use_prehook4(str);
   __seahorn_UAF_use_prehook4(str2);
   //for(int i=0;i<n;++i)
