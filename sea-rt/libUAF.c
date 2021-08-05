@@ -16,7 +16,7 @@ char* __seahorn_allocationStarts[__seahorn_MAX_ALLOCATIONS];
 extern bool __seahorn_UAF_nondet(void);
 extern char *__seahorn_UAF_nondet_ptr(void);
 /*based on implementations from https://git.busybox.net/uClibc/tree/libc/stdlib/malloc-simple/alloc.c*/
-extern char *__seahorn_UAF_malloc_redir(size_t size);
+char *__seahorn_UAF_malloc_redir(size_t size);
 bool __seahorn_UAF_active=0;
 char *__seahorn_UAF_bgn;
 char *__seahorn_UAF_end;
@@ -45,7 +45,7 @@ char *__seahorn_UAF_malloc(size_t size){
 	return(result + sizeof(size_t));
 }
 
-char *__seahorn_UAF_malloc2(size_t size) __attribute__ ((optnone)){ 
+char *__seahorn_UAF_malloc2(size_t size){ 
 	char *result;
 
   if(size==0)
@@ -204,24 +204,31 @@ void __seahorn_UAF_use_prehook3(char*ptr){
 	sassert(size!=0);
 }
 
-void __seahorn_UAF_use_prehook4(char*ptr) __attribute__ ((optnone)){
-  if(__seahorn_UAF_active&&ptr>=__seahorn_UAF_bgn){
+void __seahorn_UAF_use_prehook4(char*ptr){
+  if(__seahorn_UAF_active&&ptr>=__seahorn_UAF_bgn&ptr<=__seahorn_UAF_end){
     assume(ptr<=__seahorn_UAF_end);
     sassert(!__seahorn_UAF_freed);
   }
 }
 
-void __seahorn_UAF_memset(char *str, char c, size_t n, bool x) __attribute__ ((optnone)){
+void __seahorn_UAF_memset_fake(char *str, char c, size_t n, bool x){
   __seahorn_UAF_use_prehook4(str);
-  //for(int i=0;i<n;++i)
-    //str[i]=c;
-  //return str;
 }
 
-void __seahorn_UAF_memcpy(char *str, char *str2, size_t n, bool x) __attribute__ ((optnone)){
+void __seahorn_UAF_memset_real(char *str, char c, size_t n, bool x){
+  __seahorn_UAF_use_prehook4(str);
+  for(int i=0;i<n;++i)
+    str[i]=c;
+}
+
+void __seahorn_UAF_memcpy_fake(char *str, char *str2, size_t n, bool x){
   __seahorn_UAF_use_prehook4(str);
   __seahorn_UAF_use_prehook4(str2);
-  //for(int i=0;i<n;++i)
-    //str[i]=str2[i];
-  //return str;
+}
+
+void __seahorn_UAF_memcpy_real(char *str, char *str2, size_t n, bool x){
+  __seahorn_UAF_use_prehook4(str);
+  __seahorn_UAF_use_prehook4(str2);
+  for(int i=0;i<n;++i)
+    str[i]=str2[i];
 }

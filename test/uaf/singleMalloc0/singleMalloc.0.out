@@ -1,0 +1,1102 @@
+(declare-fun main@%.0_9 () (_ BitVec 64))
+(declare-fun |select(main@%shadow.mem.9.1, @__seahorn_UAF_bgn)_9|
+             ()
+             (_ BitVec 64))
+(declare-fun |select(main@%shadow.mem.25.1, @__seahorn_UAF_freed)_9|
+             ()
+             (_ BitVec 1))
+(declare-fun |select(main@%shadow.mem.8.2, @__seahorn_UAF_active)_9|
+             ()
+             (_ BitVec 1))
+(declare-fun |select(main@%shadow.mem.17.2, @__seahorn_UAF_end)_9|
+             ()
+             (_ BitVec 64))
+(declare-fun main@%shadow.mem.26.1_9 () (Array (_ BitVec 64) (_ BitVec 64)))
+(declare-fun main@%.0_8 () (_ BitVec 64))
+(declare-fun |select(main@%shadow.mem.9.1, @__seahorn_UAF_bgn)_8|
+             ()
+             (_ BitVec 64))
+(declare-fun |select(main@%shadow.mem.25.1, @__seahorn_UAF_freed)_8|
+             ()
+             (_ BitVec 1))
+(declare-fun |select(main@%shadow.mem.8.2, @__seahorn_UAF_active)_8|
+             ()
+             (_ BitVec 1))
+(declare-fun |select(main@%shadow.mem.17.2, @__seahorn_UAF_end)_8|
+             ()
+             (_ BitVec 64))
+(declare-fun main@%sm60_0 () (Array (_ BitVec 64) (_ BitVec 64)))
+(declare-fun main@%shadow.mem.26.1_8 () (Array (_ BitVec 64) (_ BitVec 64)))
+(declare-fun main@%.0_7 () (_ BitVec 64))
+(declare-fun |select(main@%shadow.mem.9.1, @__seahorn_UAF_bgn)_7|
+             ()
+             (_ BitVec 64))
+(declare-fun main@verifier.error.split_0 () Bool)
+(declare-fun |select(main@%sh11, @__seahorn_UAF_freed)_0| () (_ BitVec 1))
+(declare-fun |select(main@%shadow.mem.25.1, @__seahorn_UAF_freed)_7|
+             ()
+             (_ BitVec 1))
+(declare-fun |select(main@%shadow.mem.9.2, @__seahorn_UAF_bgn)_2|
+             ()
+             (_ BitVec 64))
+(declare-fun |select(main@%shadow.mem.8.2, @__seahorn_UAF_active)_7|
+             ()
+             (_ BitVec 1))
+(declare-fun |select(main@%shadow.mem.25.2, @__seahorn_UAF_freed)_2|
+             ()
+             (_ BitVec 1))
+(declare-fun |select(main@%shadow.mem.17.2, @__seahorn_UAF_end)_7|
+             ()
+             (_ BitVec 64))
+(declare-fun |select(main@%shadow.mem.8.3, @__seahorn_UAF_active)_2|
+             ()
+             (_ BitVec 1))
+(declare-fun main@%shadow.mem.26.1_7 () (Array (_ BitVec 64) (_ BitVec 64)))
+(declare-fun |select(main@%shadow.mem.17.3, @__seahorn_UAF_end)_2|
+             ()
+             (_ BitVec 64))
+(declare-fun main@%.0_6 () (_ BitVec 64))
+(declare-fun |select(main@%shadow.mem.9.2, @__seahorn_UAF_bgn)_1|
+             ()
+             (_ BitVec 64))
+(declare-fun |select(main@%sh18, @__seahorn_UAF_bgn)_0| () (_ BitVec 64))
+(declare-fun main@%shadow.mem.26.2_2 () (Array (_ BitVec 64) (_ BitVec 64)))
+(declare-fun |select(main@%shadow.mem.9.1, @__seahorn_UAF_bgn)_6|
+             ()
+             (_ BitVec 64))
+(declare-fun |select(main@%shadow.mem.8.3, @__seahorn_UAF_active)_1|
+             ()
+             (_ BitVec 1))
+(declare-fun |select(main@%sh19, @__seahorn_UAF_freed)_0| () (_ BitVec 1))
+(declare-fun |select(main@%shadow.mem.25.2, @__seahorn_UAF_freed)_1|
+             ()
+             (_ BitVec 1))
+(declare-fun |select(main@%shadow.mem.25.1, @__seahorn_UAF_freed)_6|
+             ()
+             (_ BitVec 1))
+(declare-fun |select(main@%sh20, @__seahorn_UAF_active)_0| () (_ BitVec 1))
+(declare-fun |select(main@%shadow.mem.17.3, @__seahorn_UAF_end)_1|
+             ()
+             (_ BitVec 64))
+(declare-fun |select(main@%shadow.mem.8.2, @__seahorn_UAF_active)_6|
+             ()
+             (_ BitVec 1))
+(declare-fun |select(main@%shadow.mem.9.2, @__seahorn_UAF_bgn)_0|
+             ()
+             (_ BitVec 64))
+(declare-fun |select(main@%sh21, @__seahorn_UAF_end)_0| () (_ BitVec 64))
+(declare-fun main@%shadow.mem.26.2_1 () (Array (_ BitVec 64) (_ BitVec 64)))
+(declare-fun |select(main@%shadow.mem.17.2, @__seahorn_UAF_end)_6|
+             ()
+             (_ BitVec 64))
+(declare-fun |select(main@%shadow.mem.25.2, @__seahorn_UAF_freed)_0|
+             ()
+             (_ BitVec 1))
+(declare-fun main@%shadow.mem.26.1_6 () (Array (_ BitVec 64) (_ BitVec 64)))
+(declare-fun |select(main@%shadow.mem.8.3, @__seahorn_UAF_active)_0|
+             ()
+             (_ BitVec 1))
+(declare-fun main@%.0_5 () (_ BitVec 64))
+(declare-fun |select(main@%shadow.mem.17.3, @__seahorn_UAF_end)_0|
+             ()
+             (_ BitVec 64))
+(declare-fun |select(main@%shadow.mem.9.1, @__seahorn_UAF_bgn)_5|
+             ()
+             (_ BitVec 64))
+(declare-fun |select(main@%shadow.mem.25.1, @__seahorn_UAF_freed)_5|
+             ()
+             (_ BitVec 1))
+(declare-fun main@%shadow.mem.26.2_0 () (Array (_ BitVec 64) (_ BitVec 64)))
+(declare-fun |select(main@%shadow.mem.8.2, @__seahorn_UAF_active)_5|
+             ()
+             (_ BitVec 1))
+(declare-fun |select(main@%shadow.mem.17.2, @__seahorn_UAF_end)_5|
+             ()
+             (_ BitVec 64))
+(declare-fun main@verifier.error_0 () Bool)
+(declare-fun main@%shadow.mem.26.1_5 () (Array (_ BitVec 64) (_ BitVec 64)))
+(declare-fun main@%.b1.i_0 () Bool)
+(declare-fun main@%.0_4 () (_ BitVec 64))
+(declare-fun main@%_54_0 () Bool)
+(declare-fun |select(main@%sh29, @__seahorn_UAF_bgn)_0| () (_ BitVec 64))
+(declare-fun |select(main@%shadow.mem.9.1, @__seahorn_UAF_bgn)_4|
+             ()
+             (_ BitVec 64))
+(declare-fun main@%_52_0 () (_ BitVec 64))
+(declare-fun |select(main@%sh30, @__seahorn_UAF_freed)_0| () (_ BitVec 1))
+(declare-fun main@%_53_0 () Bool)
+(declare-fun |select(main@%shadow.mem.25.1, @__seahorn_UAF_freed)_4|
+             ()
+             (_ BitVec 1))
+(declare-fun main@%_50_0 () (_ BitVec 64))
+(declare-fun |select(main@%sh31, @__seahorn_UAF_active)_0| () (_ BitVec 1))
+(declare-fun main@%_51_0 () Bool)
+(declare-fun |select(main@%shadow.mem.8.2, @__seahorn_UAF_active)_4|
+             ()
+             (_ BitVec 1))
+(declare-fun |select(main@%sh32, @__seahorn_UAF_end)_0| () (_ BitVec 64))
+(declare-fun main@%.b.i_0 () Bool)
+(declare-fun |select(main@%shadow.mem.17.2, @__seahorn_UAF_end)_4|
+             ()
+             (_ BitVec 64))
+(declare-fun main@%shadow.mem.26.1_4 () (Array (_ BitVec 64) (_ BitVec 64)))
+(declare-fun main@%.0_3 () (_ BitVec 64))
+(declare-fun |select(main@%sh34, @__seahorn_UAF_bgn)_0| () (_ BitVec 64))
+(declare-fun |select(main@%shadow.mem.9.1, @__seahorn_UAF_bgn)_3|
+             ()
+             (_ BitVec 64))
+(declare-fun |select(main@%sh35, @__seahorn_UAF_freed)_0| () (_ BitVec 1))
+(declare-fun |select(main@%shadow.mem.25.1, @__seahorn_UAF_freed)_3|
+             ()
+             (_ BitVec 1))
+(declare-fun |select(main@%sh36, @__seahorn_UAF_active)_0| () (_ BitVec 1))
+(declare-fun |select(main@%shadow.mem.8.2, @__seahorn_UAF_active)_3|
+             ()
+             (_ BitVec 1))
+(declare-fun |select(main@%sh37, @__seahorn_UAF_end)_0| () (_ BitVec 64))
+(declare-fun |select(main@%shadow.mem.17.2, @__seahorn_UAF_end)_3|
+             ()
+             (_ BitVec 64))
+(declare-fun |select(main@%shadow.mem.25.1, @__seahorn_UAF_freed)_2|
+             ()
+             (_ BitVec 1))
+(declare-fun |select(main@%shadow.mem.8.2, @__seahorn_UAF_active)_2|
+             ()
+             (_ BitVec 1))
+(declare-fun main@%shadow.mem.26.1_2 () (Array (_ BitVec 64) (_ BitVec 64)))
+(declare-fun |select(main@%sh45, @__seahorn_UAF_bgn)_0| () (_ BitVec 64))
+(declare-fun |select(main@%shadow.mem.9.1, @__seahorn_UAF_bgn)_1|
+             ()
+             (_ BitVec 64))
+(declare-fun |select(main@%shadow.mem.25.1, @__seahorn_UAF_freed)_1|
+             ()
+             (_ BitVec 1))
+(declare-fun |select(main@%shadow.mem.8.2, @__seahorn_UAF_active)_1|
+             ()
+             (_ BitVec 1))
+(declare-fun |select(main@%shadow.mem.9.1, @__seahorn_UAF_bgn)_0|
+             ()
+             (_ BitVec 64))
+(declare-fun |select(main@%shadow.mem.8.2, @__seahorn_UAF_active)_0|
+             ()
+             (_ BitVec 1))
+(declare-fun |tuple(main@entry_0, main@__seahorn_UAF_use_prehook4_0)| () Bool)
+(declare-fun |tuple(main@postcall7_0, main@__seahorn_UAF_use_prehook4_0)|
+             ()
+             Bool)
+(declare-fun |tuple(main@postcall13_0, main@__seahorn_UAF_use_prehook4_0)|
+             ()
+             Bool)
+(declare-fun main@%_49_0 () Bool)
+(declare-fun main@%shadow.mem.26.0_3 () (Array (_ BitVec 64) (_ BitVec 64)))
+(declare-fun |select(main@%sh24, @__seahorn_UAF_bgn)_0| () (_ BitVec 64))
+(declare-fun main@%shadow.mem.26.0_2 () (Array (_ BitVec 64) (_ BitVec 64)))
+(declare-fun |select(main@%sm17, @__seahorn_UAF_end)_0| () (_ BitVec 64))
+(declare-fun |select(main@%sh, @__seahorn_UAF_bgn)_0| () (_ BitVec 64))
+(declare-fun main@%_8_0 () Bool)
+(declare-fun |select(main@%sh12, @__seahorn_UAF_active)_0| () (_ BitVec 1))
+(declare-fun |select(main@%sm4, @__seahorn_UAF_end)_0| () (_ BitVec 64))
+(declare-fun |select(main@%shadow.mem.17.2, @__seahorn_UAF_end)_2|
+             ()
+             (_ BitVec 64))
+(declare-fun main@%_35_0 () (_ BitVec 64))
+(declare-fun |select(main@%sm2, @__seahorn_UAF_freed)_0| () (_ BitVec 1))
+(declare-fun main@%_16_0 () Bool)
+(declare-fun |select(main@%sm1, @__seahorn_UAF_active)_0| () (_ BitVec 1))
+(declare-fun main@%.0_1 () (_ BitVec 64))
+(declare-fun main@%sh49_0 () (Array (_ BitVec 64) (_ BitVec 64)))
+(declare-fun main@%sm61_0 () (Array (_ BitVec 64) (_ BitVec 64)))
+(declare-fun main@%_17_0 () Bool)
+(declare-fun |select(main@%shadow.mem.25.0, @__seahorn_UAF_freed)_1|
+             ()
+             (_ BitVec 1))
+(declare-fun @llvm.used_0 () (_ BitVec 64))
+(declare-fun |select(main@%shadow.mem.17.0, @__seahorn_UAF_end)_0|
+             ()
+             (_ BitVec 64))
+(declare-fun main@%shadow.mem.26.0_1 () (Array (_ BitVec 64) (_ BitVec 64)))
+(declare-fun @.str_0 () (_ BitVec 64))
+(declare-fun |select(main@%sh48, @__seahorn_UAF_end)_0| () (_ BitVec 64))
+(declare-fun main@%_31_0 () (_ BitVec 64))
+(declare-fun |select(main@%shadow.mem.8.1, @__seahorn_UAF_active)_0|
+             ()
+             (_ BitVec 1))
+(declare-fun main@__seahorn_UAF_malloc4.exit_0 () Bool)
+(declare-fun |select(main@%sm3, @__seahorn_UAF_bgn)_0| () (_ BitVec 64))
+(declare-fun |select(main@%sh43, @__seahorn_UAF_end)_0| () (_ BitVec 64))
+(declare-fun main@%_34_0 () (_ BitVec 32))
+(declare-fun @__seahorn_UAF_end_0 () (_ BitVec 64))
+(declare-fun |select(main@%sm10, @__seahorn_UAF_end)_0| () (_ BitVec 64))
+(declare-fun main@%shadow.mem.26.0_0 () (Array (_ BitVec 64) (_ BitVec 64)))
+(declare-fun main@%_15_0 () (_ BitVec 64))
+(declare-fun main@%sm_0 () (Array (_ BitVec 64) (_ BitVec 64)))
+(declare-fun |select(main@%shadow.mem.17.0, @__seahorn_UAF_end)_1|
+             ()
+             (_ BitVec 64))
+(declare-fun |select(main@%shadow.mem.9.0, @__seahorn_UAF_bgn)_1|
+             ()
+             (_ BitVec 64))
+(declare-fun main@%_10_0 () (_ BitVec 64))
+(declare-fun @__seahorn_UAF_bgn_0 () (_ BitVec 64))
+(declare-fun |select(main@%shadow.mem.17.2, @__seahorn_UAF_end)_0|
+             ()
+             (_ BitVec 64))
+(declare-fun main@postcall11_0 () Bool)
+(declare-fun main@_14_0 () Bool)
+(declare-fun main@orig.main.exit_0 () Bool)
+(declare-fun |select(main@%sh25, @__seahorn_UAF_freed)_0| () (_ BitVec 1))
+(declare-fun main@%_17_2 () Bool)
+(declare-fun main@%_3_0 () (_ BitVec 64))
+(declare-fun @__seahorn_UAF_freed_0 () (_ BitVec 64))
+(declare-fun main@%sh38_0 () (Array (_ BitVec 64) (_ BitVec 64)))
+(declare-fun |select(main@%shadow.mem.17.1, @__seahorn_UAF_end)_2|
+             ()
+             (_ BitVec 64))
+(declare-fun main@%_17_1 () Bool)
+(declare-fun |select(main@%sm6, @__seahorn_UAF_freed)_0| () (_ BitVec 1))
+(declare-fun main@%_0_0 () (_ BitVec 64))
+(declare-fun |select(main@%sh42, @__seahorn_UAF_active)_0| () (_ BitVec 1))
+(declare-fun main@postcall15_0 () Bool)
+(declare-fun @__seahorn_UAF_active_0 () (_ BitVec 64))
+(declare-fun main@%_48_0 () Bool)
+(declare-fun main@%_1_0 () (_ BitVec 64))
+(declare-fun main@%_2_0 () (_ BitVec 64))
+(declare-fun main@%.0_2 () (_ BitVec 64))
+(declare-fun main@%_39_0 () (_ BitVec 64))
+(declare-fun |select(main@%sh27, @__seahorn_UAF_end)_0| () (_ BitVec 64))
+(declare-fun |select(main@%shadow.mem.8.0, @__seahorn_UAF_active)_1|
+             ()
+             (_ BitVec 1))
+(declare-fun |select(main@%sm5, @__seahorn_UAF_active)_0| () (_ BitVec 1))
+(declare-fun main@%shadow.mem.26.1_3 () (Array (_ BitVec 64) (_ BitVec 64)))
+(declare-fun |select(main@%sh52, @__seahorn_UAF_active)_0| () (_ BitVec 1))
+(declare-fun |select(main@%sh26, @__seahorn_UAF_active)_0| () (_ BitVec 1))
+(declare-fun |select(main@%shadow.mem.17.0, @__seahorn_UAF_end)_2|
+             ()
+             (_ BitVec 64))
+(declare-fun |select(main@%sm7, @__seahorn_UAF_bgn)_0| () (_ BitVec 64))
+(declare-fun |select(main@%shadow.mem.8.1, @__seahorn_UAF_active)_2|
+             ()
+             (_ BitVec 1))
+(declare-fun |select(main@%shadow.mem.8.0, @__seahorn_UAF_active)_2|
+             ()
+             (_ BitVec 1))
+(declare-fun |select(main@%sm8, @__seahorn_UAF_end)_0| () (_ BitVec 64))
+(declare-fun |select(main@%shadow.mem.25.0, @__seahorn_UAF_freed)_2|
+             ()
+             (_ BitVec 1))
+(declare-fun main@postcall3_0 () Bool)
+(declare-fun |select(main@%sm9, @__seahorn_UAF_bgn)_0| () (_ BitVec 64))
+(declare-fun main@%_4_0 () (_ BitVec 64))
+(declare-fun main@postcall_0 () Bool)
+(declare-fun main@entry_0 () Bool)
+(declare-fun main@%_5_0 () Bool)
+(declare-fun |select(main@%shadow.mem.9.0, @__seahorn_UAF_bgn)_2|
+             ()
+             (_ BitVec 64))
+(declare-fun main@%_18_0 () Bool)
+(declare-fun |select(main@%shadow.mem.17.1, @__seahorn_UAF_end)_3|
+             ()
+             (_ BitVec 64))
+(declare-fun main@%_19_0 () (_ BitVec 64))
+(declare-fun |select(main@%shadow.mem.25.0, @__seahorn_UAF_freed)_3|
+             ()
+             (_ BitVec 1))
+(declare-fun main@%sm23_0 () (Array (_ BitVec 64) (_ BitVec 64)))
+(declare-fun |select(main@%shadow.mem.8.1, @__seahorn_UAF_active)_3|
+             ()
+             (_ BitVec 1))
+(declare-fun main@%sh22_0 () (Array (_ BitVec 64) (_ BitVec 64)))
+(declare-fun |select(main@%shadow.mem.9.0, @__seahorn_UAF_bgn)_3|
+             ()
+             (_ BitVec 64))
+(declare-fun main@postcall5_0 () Bool)
+(declare-fun main@%.b.i6_0 () Bool)
+(declare-fun main@%_20_0 () Bool)
+(declare-fun main@%sh14_0 () (Array (_ BitVec 64) (_ BitVec 64)))
+(declare-fun main@%_41_0 () (_ BitVec 64))
+(declare-fun |tuple(main@postcall11_0, main@__seahorn_UAF_use_prehook4_0)|
+             ()
+             Bool)
+(declare-fun main@%_21_0 () (_ BitVec 64))
+(declare-fun main@%malloc_0 () (_ BitVec 64))
+(declare-fun main@precall18_0 () Bool)
+(declare-fun main@%sh28_0 () (Array (_ BitVec 64) (_ BitVec 64)))
+(declare-fun main@%_6_0 () (_ BitVec 64))
+(declare-fun main@%_43_0 () Bool)
+(declare-fun main@%_22_0 () Bool)
+(declare-fun |tuple(main@postcall9_0, main@__seahorn_UAF_use_prehook4_0)|
+             ()
+             Bool)
+(declare-fun main@_23_0 () Bool)
+(declare-fun main@%_40_0 () Bool)
+(declare-fun |tuple(main@_23_0, main@__seahorn_UAF_use_prehook4_0)| () Bool)
+(declare-fun main@postcall7_0 () Bool)
+(declare-fun main@_7_0 () Bool)
+(declare-fun main@%_44_0 () (_ BitVec 64))
+(declare-fun |tuple(main@postcall3_0, main@__seahorn_UAF_use_prehook4_0)|
+             ()
+             Bool)
+(declare-fun main@%_24_0 () Bool)
+(declare-fun |select(main@%sh51, @__seahorn_UAF_freed)_0| () (_ BitVec 1))
+(declare-fun main@%_25_0 () (_ BitVec 64))
+(declare-fun main@postcall17_0 () Bool)
+(declare-fun |tuple(main@__seahorn_UAF_malloc4.exit_0, main@__seahorn_UAF_use_prehook4_0)|
+             ()
+             Bool)
+(declare-fun main@%sh33_0 () (Array (_ BitVec 64) (_ BitVec 64)))
+(declare-fun main@_9_0 () Bool)
+(declare-fun main@%.b1.i2_0 () Bool)
+(declare-fun main@%_26_0 () (_ BitVec 64))
+(declare-fun main@__seahorn_UAF_use_prehook4_0 () Bool)
+(declare-fun main@%_27_0 () (_ BitVec 64))
+(declare-fun |select(main@%sm16, @__seahorn_UAF_active)_0| () (_ BitVec 1))
+(declare-fun main@_46_0 () Bool)
+(declare-fun main@postcall9_0 () Bool)
+(declare-fun main@%_28_0 () Bool)
+(declare-fun main@%_11_0 () Bool)
+(declare-fun main@%_47_0 () (_ BitVec 64))
+(declare-fun main@%shadow.mem.26.1_0 () (Array (_ BitVec 64) (_ BitVec 64)))
+(declare-fun main@%sm39_0 () (Array (_ BitVec 64) (_ BitVec 64)))
+(declare-fun |tuple(main@postcall_0, main@_14_0)| () Bool)
+(declare-fun |tuple(main@postcall5_0, main@orig.main.exit_0)| () Bool)
+(declare-fun |select(main@%shadow.mem.25.1, @__seahorn_UAF_freed)_0|
+             ()
+             (_ BitVec 1))
+(declare-fun main@%_29_0 () Bool)
+(declare-fun main@%shadow.mem.26.1_1 () (Array (_ BitVec 64) (_ BitVec 64)))
+(declare-fun main@%_30_0 () (_ BitVec 64))
+(declare-fun |select(main@%shadow.mem.17.1, @__seahorn_UAF_end)_0|
+             ()
+             (_ BitVec 64))
+(declare-fun main@%.0_0 () (_ BitVec 64))
+(declare-fun main@%sh44_0 () (Array (_ BitVec 64) (_ BitVec 64)))
+(declare-fun |select(main@%shadow.mem.17.2, @__seahorn_UAF_end)_1|
+             ()
+             (_ BitVec 64))
+(declare-fun main@%_32_0 () (_ BitVec 64))
+(declare-fun |select(main@%shadow.mem.25.0, @__seahorn_UAF_freed)_0|
+             ()
+             (_ BitVec 1))
+(declare-fun |select(main@%sh47, @__seahorn_UAF_active)_0| () (_ BitVec 1))
+(declare-fun main@postcall13_0 () Bool)
+(declare-fun |select(main@%sh13, @__seahorn_UAF_end)_0| () (_ BitVec 64))
+(declare-fun |select(main@%shadow.mem.9.0, @__seahorn_UAF_bgn)_0|
+             ()
+             (_ BitVec 64))
+(declare-fun |select(main@%sh46, @__seahorn_UAF_freed)_0| () (_ BitVec 1))
+(declare-fun main@%_33_0 () Bool)
+(declare-fun |select(main@%shadow.mem.17.1, @__seahorn_UAF_end)_1|
+             ()
+             (_ BitVec 64))
+(declare-fun |select(main@%sh41, @__seahorn_UAF_freed)_0| () (_ BitVec 1))
+(declare-fun main@%_37_0 () Bool)
+(declare-fun |select(main@%shadow.mem.9.1, @__seahorn_UAF_bgn)_2|
+             ()
+             (_ BitVec 64))
+(declare-fun main@%_38_0 () (_ BitVec 64))
+(declare-fun |select(main@%sh40, @__seahorn_UAF_bgn)_0| () (_ BitVec 64))
+(declare-fun main@%sh54_0 () (Array (_ BitVec 64) (_ BitVec 64)))
+(declare-fun |select(main@%sh50, @__seahorn_UAF_bgn)_0| () (_ BitVec 64))
+(declare-fun main@%sm15_0 () (Array (_ BitVec 64) (_ BitVec 64)))
+(declare-fun main@%_42_0 () Bool)
+(declare-fun main@%.b.i5_0 () Bool)
+(declare-fun |select(main@%sh53, @__seahorn_UAF_end)_0| () (_ BitVec 64))
+(declare-fun main@%_45_0 () Bool)
+(declare-fun main@%_12_0 () (_ BitVec 64))
+(declare-fun main@%.b1.i7_0 () Bool)
+(declare-fun main@%_13_0 () Bool)
+(declare-fun |select(main@%sm55, @__seahorn_UAF_freed)_0| () (_ BitVec 1))
+(declare-fun |tuple(main@_7_0, main@_14_0)| () Bool)
+(declare-fun |tuple(main@postcall17_0, main@orig.main.exit_0)| () Bool)
+(declare-fun |select(main@%shadow.mem.8.0, @__seahorn_UAF_active)_0|
+             ()
+             (_ BitVec 1))
+(declare-fun |select(main@%shadow.mem.8.1, @__seahorn_UAF_active)_1|
+             ()
+             (_ BitVec 1))
+
+(assert (let ((a!1 (=> main@postcall_0
+               (= main@%sm15_0
+                  (store main@%sh14_0
+                         main@%_0_0
+                         ((_ zero_extend 32) #x00000000)))))
+      (a!2 (=> main@postcall_0
+               (= main@%.b.i5_0
+                  (not (= |select(main@%sh12, @__seahorn_UAF_active)_0| #b0)))))
+      (a!3 (=> main@_9_0
+               (= main@%_13_0 (not (= main@%malloc_0 #x0000000000000000)))))
+      (a!4 (=> main@postcall9_0
+               (= main@%sm39_0
+                  (store main@%sh38_0
+                         main@%_26_0
+                         ((_ zero_extend 32) #x000001e0)))))
+      (a!5 (=> main@postcall13_0
+               (= main@%_34_0
+                  ((_ extract 31 0) (select main@%sh49_0 main@%_31_0)))))
+      (a!6 (=> main@postcall15_0
+               (= main@%.b.i6_0
+                  (not (= |select(main@%sh52, @__seahorn_UAF_active)_0| #b0)))))
+      (a!7 (=> main@precall18_0
+               (= main@%.b1.i2_0
+                  (not (= |select(main@%sh51, @__seahorn_UAF_freed)_0| #b0)))))
+      (a!8 (=> main@_46_0
+               (= main@%.b1.i7_0
+                  (not (= |select(main@%sh51, @__seahorn_UAF_freed)_0| #b0)))))
+      (a!9 (=> main@__seahorn_UAF_use_prehook4_0
+               (= main@%.b.i_0
+                  (not (= |select(main@%shadow.mem.8.2, @__seahorn_UAF_active)_9|
+                          #b0)))))
+      (a!10 (=> main@__seahorn_UAF_use_prehook4_0
+                (= main@%.b1.i_0
+                   (not (= |select(main@%shadow.mem.25.1, @__seahorn_UAF_freed)_9|
+                           #b0))))))
+  (and (bvugt @__seahorn_UAF_active_0 #x0000000000000000)
+       (bvugt @__seahorn_UAF_freed_0 #x0000000000000000)
+       (bvugt @__seahorn_UAF_bgn_0 #x0000000000000000)
+       (bvugt @__seahorn_UAF_end_0 #x0000000000000000)
+       (bvugt @.str_0 #x0000000000000000)
+       (bvugt @llvm.used_0 #x0000000000000000)
+       (= main@%sm_0 main@%sm61_0)
+       (= |select(main@%sm1, @__seahorn_UAF_active)_0| #b0)
+       (= |select(main@%sm2, @__seahorn_UAF_freed)_0| #b0)
+       (= |select(main@%sm3, @__seahorn_UAF_bgn)_0| #x0000000000000000)
+       (= |select(main@%sm4, @__seahorn_UAF_end)_0| #x0000000000000000)
+       (bvugt main@%_0_0 #x0000000000000000)
+       (bvugt main@%_1_0 #x0000000000000000)
+       (= main@%_2_0 main@%_0_0)
+       (= |select(main@%sm5, @__seahorn_UAF_active)_0| #b0)
+       (= |select(main@%sm6, @__seahorn_UAF_freed)_0| #b0)
+       (= |select(main@%sm7, @__seahorn_UAF_bgn)_0| #x0000000000000000)
+       (= |select(main@%sm8, @__seahorn_UAF_end)_0| #x0000000000000000)
+       (= |select(main@%sm9, @__seahorn_UAF_bgn)_0| main@%_3_0)
+       (= |select(main@%sm10, @__seahorn_UAF_end)_0| main@%_4_0)
+       (=> main@postcall_0 (and main@postcall_0 main@entry_0))
+       (=> (and main@postcall_0 main@entry_0) main@%_5_0)
+       a!1
+       (=> main@postcall_0 (= main@%_6_0 main@%_1_0))
+       (=> main@postcall_0 (bvugt main@%malloc_0 #x0000000000000000))
+       a!2
+       (=> main@_7_0 (and main@_7_0 main@postcall_0))
+       (=> (and main@_7_0 main@postcall_0) (not main@%.b.i5_0))
+       (=> main@_9_0 (and main@_9_0 main@_7_0))
+       (=> (and main@_9_0 main@_7_0) main@%_8_0)
+       (=> main@_9_0 (= |select(main@%sm16, @__seahorn_UAF_active)_0| #b1))
+       (=> main@_9_0 (= main@%_10_0 |select(main@%sh, @__seahorn_UAF_bgn)_0|))
+       (=> main@_9_0 (= main@%_11_0 (= main@%_10_0 main@%malloc_0)))
+       (=> main@_9_0 main@%_11_0)
+       (=> main@_9_0 (= main@%_12_0 (bvadd main@%malloc_0 #x000000000000003c)))
+       (=> main@_9_0 (bvuge main@%_12_0 main@%malloc_0))
+       (=> main@_9_0 (= |select(main@%sm17, @__seahorn_UAF_end)_0| main@%_12_0))
+       a!3
+       (=> |tuple(main@_7_0, main@_14_0)| main@_7_0)
+       (=> |tuple(main@postcall_0, main@_14_0)| main@postcall_0)
+       (=> main@_14_0
+           (or |tuple(main@_7_0, main@_14_0)|
+               |tuple(main@postcall_0, main@_14_0)|))
+       (=> |tuple(main@_7_0, main@_14_0)| (not main@%_8_0))
+       (=> |tuple(main@postcall_0, main@_14_0)| main@%.b.i5_0)
+       (=> main@_14_0 (= main@%_15_0 |select(main@%sh, @__seahorn_UAF_bgn)_0|))
+       (=> main@_14_0 (= main@%_16_0 (bvult main@%malloc_0 main@%_15_0)))
+       (=> main@__seahorn_UAF_malloc4.exit_0
+           (or (and main@__seahorn_UAF_malloc4.exit_0 main@_14_0)
+               (and main@__seahorn_UAF_malloc4.exit_0 main@_9_0)))
+       (=> (and main@__seahorn_UAF_malloc4.exit_0 main@_14_0)
+           (= |select(main@%shadow.mem.17.0, @__seahorn_UAF_end)_0|
+              |select(main@%sh13, @__seahorn_UAF_end)_0|))
+       (=> (and main@__seahorn_UAF_malloc4.exit_0 main@_14_0)
+           (= |select(main@%shadow.mem.8.0, @__seahorn_UAF_active)_0|
+              |select(main@%sh12, @__seahorn_UAF_active)_0|))
+       (=> (and main@__seahorn_UAF_malloc4.exit_0 main@_14_0)
+           (= main@%_17_0 main@%_16_0))
+       (=> (and main@__seahorn_UAF_malloc4.exit_0 main@_9_0)
+           (= |select(main@%shadow.mem.17.0, @__seahorn_UAF_end)_1|
+              |select(main@%sm17, @__seahorn_UAF_end)_0|))
+       (=> (and main@__seahorn_UAF_malloc4.exit_0 main@_9_0)
+           (= |select(main@%shadow.mem.8.0, @__seahorn_UAF_active)_1|
+              |select(main@%sm16, @__seahorn_UAF_active)_0|))
+       (=> (and main@__seahorn_UAF_malloc4.exit_0 main@_9_0)
+           (= main@%_17_1 main@%_13_0))
+       (=> (and main@__seahorn_UAF_malloc4.exit_0 main@_14_0)
+           (= |select(main@%shadow.mem.17.0, @__seahorn_UAF_end)_2|
+              |select(main@%shadow.mem.17.0, @__seahorn_UAF_end)_0|))
+       (=> (and main@__seahorn_UAF_malloc4.exit_0 main@_14_0)
+           (= |select(main@%shadow.mem.8.0, @__seahorn_UAF_active)_2|
+              |select(main@%shadow.mem.8.0, @__seahorn_UAF_active)_0|))
+       (=> (and main@__seahorn_UAF_malloc4.exit_0 main@_14_0)
+           (= main@%_17_2 main@%_17_0))
+       (=> (and main@__seahorn_UAF_malloc4.exit_0 main@_9_0)
+           (= |select(main@%shadow.mem.17.0, @__seahorn_UAF_end)_2|
+              |select(main@%shadow.mem.17.0, @__seahorn_UAF_end)_1|))
+       (=> (and main@__seahorn_UAF_malloc4.exit_0 main@_9_0)
+           (= |select(main@%shadow.mem.8.0, @__seahorn_UAF_active)_2|
+              |select(main@%shadow.mem.8.0, @__seahorn_UAF_active)_1|))
+       (=> (and main@__seahorn_UAF_malloc4.exit_0 main@_9_0)
+           (= main@%_17_2 main@%_17_1))
+       (=> main@__seahorn_UAF_malloc4.exit_0 main@%_17_2)
+       (=> main@postcall3_0
+           (and main@postcall3_0 main@__seahorn_UAF_malloc4.exit_0))
+       (=> (and main@postcall3_0 main@__seahorn_UAF_malloc4.exit_0) main@%_18_0)
+       (=> main@postcall3_0 (= main@%_19_0 main@%_1_0))
+       (=> main@postcall3_0
+           (= main@%sm23_0 (store main@%sh22_0 main@%_19_0 main@%malloc_0)))
+       (=> main@postcall5_0 (and main@postcall5_0 main@postcall3_0))
+       (=> (and main@postcall5_0 main@postcall3_0) main@%_20_0)
+       (=> main@postcall5_0 (= main@%_21_0 (select main@%sh28_0 main@%_1_0)))
+       (=> main@postcall5_0 (= main@%_22_0 (= main@%_21_0 #x0000000000000000)))
+       (=> main@_23_0 (and main@_23_0 main@postcall5_0))
+       (=> (and main@_23_0 main@postcall5_0) (not main@%_22_0))
+       (=> main@postcall7_0 (and main@postcall7_0 main@_23_0))
+       (=> (and main@postcall7_0 main@_23_0) main@%_24_0)
+       (=> main@postcall7_0 (= main@%_25_0 (select main@%sh33_0 main@%_1_0)))
+       (=> main@postcall7_0
+           (= main@%_26_0 (bvadd main@%_25_0 #x0000000000000014)))
+       (=> main@postcall7_0 (bvuge main@%_26_0 main@%_25_0))
+       (=> main@postcall7_0 (= main@%_27_0 main@%_26_0))
+       (=> main@postcall9_0 (and main@postcall9_0 main@postcall7_0))
+       (=> (and main@postcall9_0 main@postcall7_0) main@%_28_0)
+       (=> main@postcall9_0 (bvugt main@%_25_0 #x0000000000000000))
+       a!4
+       (=> main@postcall11_0 (and main@postcall11_0 main@postcall9_0))
+       (=> (and main@postcall11_0 main@postcall9_0) main@%_29_0)
+       (=> main@postcall11_0 (= main@%_30_0 (select main@%sh44_0 main@%_1_0)))
+       (=> main@postcall11_0
+           (= main@%_31_0 (bvadd main@%_30_0 #x0000000000000014)))
+       (=> main@postcall11_0 (bvuge main@%_31_0 main@%_30_0))
+       (=> main@postcall11_0 (= main@%_32_0 main@%_31_0))
+       (=> main@postcall13_0 (and main@postcall13_0 main@postcall11_0))
+       (=> (and main@postcall13_0 main@postcall11_0) main@%_33_0)
+       (=> main@postcall13_0 (bvugt main@%_30_0 #x0000000000000000))
+       a!5
+       (=> main@postcall13_0 (= main@%_35_0 (bvadd @.str_0 #x0000000000000000)))
+       (=> main@postcall13_0 (bvuge main@%_35_0 @.str_0))
+       (=> main@postcall15_0 (and main@postcall15_0 main@postcall13_0))
+       (=> (and main@postcall15_0 main@postcall13_0) main@%_37_0)
+       (=> main@postcall15_0 (= main@%_38_0 (select main@%sh54_0 main@%_1_0)))
+       (=> main@postcall15_0 (= main@%_39_0 main@%_38_0))
+       a!6
+       (=> main@postcall15_0
+           (= main@%_41_0 |select(main@%sh50, @__seahorn_UAF_bgn)_0|))
+       (=> main@postcall15_0 (= main@%_42_0 (= main@%_41_0 main@%_39_0)))
+       (=> main@postcall15_0 (= main@%_43_0 (and main@%.b.i6_0 main@%_42_0)))
+       (=> main@precall18_0 (and main@precall18_0 main@postcall15_0))
+       (=> (and main@precall18_0 main@postcall15_0) (not main@%_40_0))
+       (=> main@precall18_0 main@%_43_0)
+       (=> main@precall18_0
+           (= main@%_44_0 |select(main@%sh53, @__seahorn_UAF_end)_0|))
+       (=> main@precall18_0 (= main@%_45_0 (bvuge main@%_44_0 main@%_39_0)))
+       (=> main@precall18_0 main@%_45_0)
+       a!7
+       (=> main@precall18_0 main@%.b1.i2_0)
+       (=> main@postcall17_0 (and main@postcall17_0 main@postcall15_0))
+       (=> (and main@postcall17_0 main@postcall15_0) main@%_40_0)
+       (=> main@_46_0 (and main@_46_0 main@postcall17_0))
+       (=> (and main@_46_0 main@postcall17_0) main@%_43_0)
+       (=> main@_46_0
+           (= main@%_47_0 |select(main@%sh53, @__seahorn_UAF_end)_0|))
+       (=> main@_46_0 (= main@%_48_0 (bvuge main@%_47_0 main@%_39_0)))
+       (=> main@_46_0 main@%_48_0)
+       a!8
+       (=> main@_46_0 (not main@%.b1.i7_0))
+       (=> main@_46_0 (= |select(main@%sm55, @__seahorn_UAF_freed)_0| #b1))
+       (=> |tuple(main@postcall17_0, main@orig.main.exit_0)| main@postcall17_0)
+       (=> |tuple(main@postcall5_0, main@orig.main.exit_0)| main@postcall5_0)
+       (=> main@orig.main.exit_0
+           (or (and main@orig.main.exit_0 main@_46_0)
+               |tuple(main@postcall17_0, main@orig.main.exit_0)|
+               |tuple(main@postcall5_0, main@orig.main.exit_0)|))
+       (=> |tuple(main@postcall17_0, main@orig.main.exit_0)| (not main@%_43_0))
+       (=> |tuple(main@postcall5_0, main@orig.main.exit_0)| main@%_22_0)
+       (=> (and main@orig.main.exit_0 main@_46_0)
+           (= main@%shadow.mem.26.0_0 main@%sh54_0))
+       (=> (and main@orig.main.exit_0 main@_46_0)
+           (= |select(main@%shadow.mem.17.1, @__seahorn_UAF_end)_0|
+              |select(main@%sh53, @__seahorn_UAF_end)_0|))
+       (=> (and main@orig.main.exit_0 main@_46_0)
+           (= |select(main@%shadow.mem.8.1, @__seahorn_UAF_active)_0|
+              |select(main@%sh52, @__seahorn_UAF_active)_0|))
+       (=> (and main@orig.main.exit_0 main@_46_0)
+           (= |select(main@%shadow.mem.25.0, @__seahorn_UAF_freed)_0|
+              |select(main@%sm55, @__seahorn_UAF_freed)_0|))
+       (=> (and main@orig.main.exit_0 main@_46_0)
+           (= |select(main@%shadow.mem.9.0, @__seahorn_UAF_bgn)_0|
+              |select(main@%sh50, @__seahorn_UAF_bgn)_0|))
+       (=> |tuple(main@postcall17_0, main@orig.main.exit_0)|
+           (= main@%shadow.mem.26.0_1 main@%sh54_0))
+       (=> |tuple(main@postcall17_0, main@orig.main.exit_0)|
+           (= |select(main@%shadow.mem.17.1, @__seahorn_UAF_end)_1|
+              |select(main@%sh53, @__seahorn_UAF_end)_0|))
+       (=> |tuple(main@postcall17_0, main@orig.main.exit_0)|
+           (= |select(main@%shadow.mem.8.1, @__seahorn_UAF_active)_1|
+              |select(main@%sh52, @__seahorn_UAF_active)_0|))
+       (=> |tuple(main@postcall17_0, main@orig.main.exit_0)|
+           (= |select(main@%shadow.mem.25.0, @__seahorn_UAF_freed)_1|
+              |select(main@%sh51, @__seahorn_UAF_freed)_0|))
+       (=> |tuple(main@postcall17_0, main@orig.main.exit_0)|
+           (= |select(main@%shadow.mem.9.0, @__seahorn_UAF_bgn)_1|
+              |select(main@%sh50, @__seahorn_UAF_bgn)_0|))
+       (=> |tuple(main@postcall5_0, main@orig.main.exit_0)|
+           (= main@%shadow.mem.26.0_2 main@%sh28_0))
+       (=> |tuple(main@postcall5_0, main@orig.main.exit_0)|
+           (= |select(main@%shadow.mem.17.1, @__seahorn_UAF_end)_2|
+              |select(main@%sh27, @__seahorn_UAF_end)_0|))
+       (=> |tuple(main@postcall5_0, main@orig.main.exit_0)|
+           (= |select(main@%shadow.mem.8.1, @__seahorn_UAF_active)_2|
+              |select(main@%sh26, @__seahorn_UAF_active)_0|))
+       (=> |tuple(main@postcall5_0, main@orig.main.exit_0)|
+           (= |select(main@%shadow.mem.25.0, @__seahorn_UAF_freed)_2|
+              |select(main@%sh25, @__seahorn_UAF_freed)_0|))
+       (=> |tuple(main@postcall5_0, main@orig.main.exit_0)|
+           (= |select(main@%shadow.mem.9.0, @__seahorn_UAF_bgn)_2|
+              |select(main@%sh24, @__seahorn_UAF_bgn)_0|))
+       (=> (and main@orig.main.exit_0 main@_46_0)
+           (= main@%shadow.mem.26.0_3 main@%shadow.mem.26.0_0))
+       (=> (and main@orig.main.exit_0 main@_46_0)
+           (= |select(main@%shadow.mem.17.1, @__seahorn_UAF_end)_3|
+              |select(main@%shadow.mem.17.1, @__seahorn_UAF_end)_0|))
+       (=> (and main@orig.main.exit_0 main@_46_0)
+           (= |select(main@%shadow.mem.8.1, @__seahorn_UAF_active)_3|
+              |select(main@%shadow.mem.8.1, @__seahorn_UAF_active)_0|))
+       (=> (and main@orig.main.exit_0 main@_46_0)
+           (= |select(main@%shadow.mem.25.0, @__seahorn_UAF_freed)_3|
+              |select(main@%shadow.mem.25.0, @__seahorn_UAF_freed)_0|))
+       (=> (and main@orig.main.exit_0 main@_46_0)
+           (= |select(main@%shadow.mem.9.0, @__seahorn_UAF_bgn)_3|
+              |select(main@%shadow.mem.9.0, @__seahorn_UAF_bgn)_0|))
+       (=> |tuple(main@postcall17_0, main@orig.main.exit_0)|
+           (= main@%shadow.mem.26.0_3 main@%shadow.mem.26.0_1))
+       (=> |tuple(main@postcall17_0, main@orig.main.exit_0)|
+           (= |select(main@%shadow.mem.17.1, @__seahorn_UAF_end)_3|
+              |select(main@%shadow.mem.17.1, @__seahorn_UAF_end)_1|))
+       (=> |tuple(main@postcall17_0, main@orig.main.exit_0)|
+           (= |select(main@%shadow.mem.8.1, @__seahorn_UAF_active)_3|
+              |select(main@%shadow.mem.8.1, @__seahorn_UAF_active)_1|))
+       (=> |tuple(main@postcall17_0, main@orig.main.exit_0)|
+           (= |select(main@%shadow.mem.25.0, @__seahorn_UAF_freed)_3|
+              |select(main@%shadow.mem.25.0, @__seahorn_UAF_freed)_1|))
+       (=> |tuple(main@postcall17_0, main@orig.main.exit_0)|
+           (= |select(main@%shadow.mem.9.0, @__seahorn_UAF_bgn)_3|
+              |select(main@%shadow.mem.9.0, @__seahorn_UAF_bgn)_1|))
+       (=> |tuple(main@postcall5_0, main@orig.main.exit_0)|
+           (= main@%shadow.mem.26.0_3 main@%shadow.mem.26.0_2))
+       (=> |tuple(main@postcall5_0, main@orig.main.exit_0)|
+           (= |select(main@%shadow.mem.17.1, @__seahorn_UAF_end)_3|
+              |select(main@%shadow.mem.17.1, @__seahorn_UAF_end)_2|))
+       (=> |tuple(main@postcall5_0, main@orig.main.exit_0)|
+           (= |select(main@%shadow.mem.8.1, @__seahorn_UAF_active)_3|
+              |select(main@%shadow.mem.8.1, @__seahorn_UAF_active)_2|))
+       (=> |tuple(main@postcall5_0, main@orig.main.exit_0)|
+           (= |select(main@%shadow.mem.25.0, @__seahorn_UAF_freed)_3|
+              |select(main@%shadow.mem.25.0, @__seahorn_UAF_freed)_2|))
+       (=> |tuple(main@postcall5_0, main@orig.main.exit_0)|
+           (= |select(main@%shadow.mem.9.0, @__seahorn_UAF_bgn)_3|
+              |select(main@%shadow.mem.9.0, @__seahorn_UAF_bgn)_2|))
+       (=> main@orig.main.exit_0 (not main@%_49_0))
+       (=> |tuple(main@postcall13_0, main@__seahorn_UAF_use_prehook4_0)|
+           main@postcall13_0)
+       (=> |tuple(main@postcall11_0, main@__seahorn_UAF_use_prehook4_0)|
+           main@postcall11_0)
+       (=> |tuple(main@postcall9_0, main@__seahorn_UAF_use_prehook4_0)|
+           main@postcall9_0)
+       (=> |tuple(main@postcall7_0, main@__seahorn_UAF_use_prehook4_0)|
+           main@postcall7_0)
+       (=> |tuple(main@_23_0, main@__seahorn_UAF_use_prehook4_0)| main@_23_0)
+       (=> |tuple(main@postcall3_0, main@__seahorn_UAF_use_prehook4_0)|
+           main@postcall3_0)
+       (=> |tuple(main@__seahorn_UAF_malloc4.exit_0, main@__seahorn_UAF_use_prehook4_0)|
+           main@__seahorn_UAF_malloc4.exit_0)
+       (=> |tuple(main@entry_0, main@__seahorn_UAF_use_prehook4_0)|
+           main@entry_0)
+       (=> main@__seahorn_UAF_use_prehook4_0
+           (or (and main@__seahorn_UAF_use_prehook4_0 main@orig.main.exit_0)
+               |tuple(main@postcall13_0, main@__seahorn_UAF_use_prehook4_0)|
+               |tuple(main@postcall11_0, main@__seahorn_UAF_use_prehook4_0)|
+               |tuple(main@postcall9_0, main@__seahorn_UAF_use_prehook4_0)|
+               |tuple(main@postcall7_0, main@__seahorn_UAF_use_prehook4_0)|
+               |tuple(main@_23_0, main@__seahorn_UAF_use_prehook4_0)|
+               |tuple(main@postcall3_0, main@__seahorn_UAF_use_prehook4_0)|
+               |tuple(main@__seahorn_UAF_malloc4.exit_0, main@__seahorn_UAF_use_prehook4_0)|
+               |tuple(main@entry_0, main@__seahorn_UAF_use_prehook4_0)|))
+       (=> |tuple(main@postcall13_0, main@__seahorn_UAF_use_prehook4_0)|
+           (not main@%_37_0))
+       (=> |tuple(main@postcall11_0, main@__seahorn_UAF_use_prehook4_0)|
+           (not main@%_33_0))
+       (=> |tuple(main@postcall9_0, main@__seahorn_UAF_use_prehook4_0)|
+           (not main@%_29_0))
+       (=> |tuple(main@postcall7_0, main@__seahorn_UAF_use_prehook4_0)|
+           (not main@%_28_0))
+       (=> |tuple(main@_23_0, main@__seahorn_UAF_use_prehook4_0)|
+           (not main@%_24_0))
+       (=> |tuple(main@postcall3_0, main@__seahorn_UAF_use_prehook4_0)|
+           (not main@%_20_0))
+       (=> |tuple(main@__seahorn_UAF_malloc4.exit_0, main@__seahorn_UAF_use_prehook4_0)|
+           (not main@%_18_0))
+       (=> |tuple(main@entry_0, main@__seahorn_UAF_use_prehook4_0)|
+           (not main@%_5_0))
+       (=> (and main@__seahorn_UAF_use_prehook4_0 main@orig.main.exit_0)
+           (= main@%shadow.mem.26.1_0 main@%shadow.mem.26.0_3))
+       (=> (and main@__seahorn_UAF_use_prehook4_0 main@orig.main.exit_0)
+           (= |select(main@%shadow.mem.17.2, @__seahorn_UAF_end)_0|
+              |select(main@%shadow.mem.17.1, @__seahorn_UAF_end)_3|))
+       (=> (and main@__seahorn_UAF_use_prehook4_0 main@orig.main.exit_0)
+           (= |select(main@%shadow.mem.8.2, @__seahorn_UAF_active)_0|
+              |select(main@%shadow.mem.8.1, @__seahorn_UAF_active)_3|))
+       (=> (and main@__seahorn_UAF_use_prehook4_0 main@orig.main.exit_0)
+           (= |select(main@%shadow.mem.25.1, @__seahorn_UAF_freed)_0|
+              |select(main@%shadow.mem.25.0, @__seahorn_UAF_freed)_3|))
+       (=> (and main@__seahorn_UAF_use_prehook4_0 main@orig.main.exit_0)
+           (= |select(main@%shadow.mem.9.1, @__seahorn_UAF_bgn)_0|
+              |select(main@%shadow.mem.9.0, @__seahorn_UAF_bgn)_3|))
+       (=> (and main@__seahorn_UAF_use_prehook4_0 main@orig.main.exit_0)
+           (= main@%.0_0 main@%_2_0))
+       (=> |tuple(main@postcall13_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= main@%shadow.mem.26.1_1 main@%sh49_0))
+       (=> |tuple(main@postcall13_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.17.2, @__seahorn_UAF_end)_1|
+              |select(main@%sh48, @__seahorn_UAF_end)_0|))
+       (=> |tuple(main@postcall13_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.8.2, @__seahorn_UAF_active)_1|
+              |select(main@%sh47, @__seahorn_UAF_active)_0|))
+       (=> |tuple(main@postcall13_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.25.1, @__seahorn_UAF_freed)_1|
+              |select(main@%sh46, @__seahorn_UAF_freed)_0|))
+       (=> |tuple(main@postcall13_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.9.1, @__seahorn_UAF_bgn)_1|
+              |select(main@%sh45, @__seahorn_UAF_bgn)_0|))
+       (=> |tuple(main@postcall13_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= main@%.0_1 main@%_6_0))
+       (=> |tuple(main@postcall11_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= main@%shadow.mem.26.1_2 main@%sh44_0))
+       (=> |tuple(main@postcall11_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.17.2, @__seahorn_UAF_end)_2|
+              |select(main@%sh43, @__seahorn_UAF_end)_0|))
+       (=> |tuple(main@postcall11_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.8.2, @__seahorn_UAF_active)_2|
+              |select(main@%sh42, @__seahorn_UAF_active)_0|))
+       (=> |tuple(main@postcall11_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.25.1, @__seahorn_UAF_freed)_2|
+              |select(main@%sh41, @__seahorn_UAF_freed)_0|))
+       (=> |tuple(main@postcall11_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.9.1, @__seahorn_UAF_bgn)_2|
+              |select(main@%sh40, @__seahorn_UAF_bgn)_0|))
+       (=> |tuple(main@postcall11_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= main@%.0_2 main@%_32_0))
+       (=> |tuple(main@postcall9_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= main@%shadow.mem.26.1_3 main@%sm39_0))
+       (=> |tuple(main@postcall9_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.17.2, @__seahorn_UAF_end)_3|
+              |select(main@%sh37, @__seahorn_UAF_end)_0|))
+       (=> |tuple(main@postcall9_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.8.2, @__seahorn_UAF_active)_3|
+              |select(main@%sh36, @__seahorn_UAF_active)_0|))
+       (=> |tuple(main@postcall9_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.25.1, @__seahorn_UAF_freed)_3|
+              |select(main@%sh35, @__seahorn_UAF_freed)_0|))
+       (=> |tuple(main@postcall9_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.9.1, @__seahorn_UAF_bgn)_3|
+              |select(main@%sh34, @__seahorn_UAF_bgn)_0|))
+       (=> |tuple(main@postcall9_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= main@%.0_3 main@%_6_0))
+       (=> |tuple(main@postcall7_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= main@%shadow.mem.26.1_4 main@%sh33_0))
+       (=> |tuple(main@postcall7_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.17.2, @__seahorn_UAF_end)_4|
+              |select(main@%sh32, @__seahorn_UAF_end)_0|))
+       (=> |tuple(main@postcall7_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.8.2, @__seahorn_UAF_active)_4|
+              |select(main@%sh31, @__seahorn_UAF_active)_0|))
+       (=> |tuple(main@postcall7_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.25.1, @__seahorn_UAF_freed)_4|
+              |select(main@%sh30, @__seahorn_UAF_freed)_0|))
+       (=> |tuple(main@postcall7_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.9.1, @__seahorn_UAF_bgn)_4|
+              |select(main@%sh29, @__seahorn_UAF_bgn)_0|))
+       (=> |tuple(main@postcall7_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= main@%.0_4 main@%_27_0))
+       (=> |tuple(main@_23_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= main@%shadow.mem.26.1_5 main@%sh28_0))
+       (=> |tuple(main@_23_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.17.2, @__seahorn_UAF_end)_5|
+              |select(main@%sh27, @__seahorn_UAF_end)_0|))
+       (=> |tuple(main@_23_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.8.2, @__seahorn_UAF_active)_5|
+              |select(main@%sh26, @__seahorn_UAF_active)_0|))
+       (=> |tuple(main@_23_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.25.1, @__seahorn_UAF_freed)_5|
+              |select(main@%sh25, @__seahorn_UAF_freed)_0|))
+       (=> |tuple(main@_23_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.9.1, @__seahorn_UAF_bgn)_5|
+              |select(main@%sh24, @__seahorn_UAF_bgn)_0|))
+       (=> |tuple(main@_23_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= main@%.0_5 main@%_6_0))
+       (=> |tuple(main@postcall3_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= main@%shadow.mem.26.1_6 main@%sm23_0))
+       (=> |tuple(main@postcall3_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.17.2, @__seahorn_UAF_end)_6|
+              |select(main@%sh21, @__seahorn_UAF_end)_0|))
+       (=> |tuple(main@postcall3_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.8.2, @__seahorn_UAF_active)_6|
+              |select(main@%sh20, @__seahorn_UAF_active)_0|))
+       (=> |tuple(main@postcall3_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.25.1, @__seahorn_UAF_freed)_6|
+              |select(main@%sh19, @__seahorn_UAF_freed)_0|))
+       (=> |tuple(main@postcall3_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.9.1, @__seahorn_UAF_bgn)_6|
+              |select(main@%sh18, @__seahorn_UAF_bgn)_0|))
+       (=> |tuple(main@postcall3_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= main@%.0_6 main@%_6_0))
+       (=> |tuple(main@__seahorn_UAF_malloc4.exit_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= main@%shadow.mem.26.1_7 main@%sm15_0))
+       (=> |tuple(main@__seahorn_UAF_malloc4.exit_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.17.2, @__seahorn_UAF_end)_7|
+              |select(main@%shadow.mem.17.0, @__seahorn_UAF_end)_2|))
+       (=> |tuple(main@__seahorn_UAF_malloc4.exit_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.8.2, @__seahorn_UAF_active)_7|
+              |select(main@%shadow.mem.8.0, @__seahorn_UAF_active)_2|))
+       (=> |tuple(main@__seahorn_UAF_malloc4.exit_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.25.1, @__seahorn_UAF_freed)_7|
+              |select(main@%sh11, @__seahorn_UAF_freed)_0|))
+       (=> |tuple(main@__seahorn_UAF_malloc4.exit_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.9.1, @__seahorn_UAF_bgn)_7|
+              |select(main@%sh, @__seahorn_UAF_bgn)_0|))
+       (=> |tuple(main@__seahorn_UAF_malloc4.exit_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= main@%.0_7 main@%_6_0))
+       (=> |tuple(main@entry_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= main@%shadow.mem.26.1_8 main@%sm60_0))
+       (=> |tuple(main@entry_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.17.2, @__seahorn_UAF_end)_8|
+              |select(main@%sm10, @__seahorn_UAF_end)_0|))
+       (=> |tuple(main@entry_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.8.2, @__seahorn_UAF_active)_8|
+              |select(main@%sm5, @__seahorn_UAF_active)_0|))
+       (=> |tuple(main@entry_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.25.1, @__seahorn_UAF_freed)_8|
+              |select(main@%sm6, @__seahorn_UAF_freed)_0|))
+       (=> |tuple(main@entry_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.9.1, @__seahorn_UAF_bgn)_8|
+              |select(main@%sm9, @__seahorn_UAF_bgn)_0|))
+       (=> |tuple(main@entry_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= main@%.0_8 main@%_2_0))
+       (=> (and main@__seahorn_UAF_use_prehook4_0 main@orig.main.exit_0)
+           (= main@%shadow.mem.26.1_9 main@%shadow.mem.26.1_0))
+       (=> (and main@__seahorn_UAF_use_prehook4_0 main@orig.main.exit_0)
+           (= |select(main@%shadow.mem.17.2, @__seahorn_UAF_end)_9|
+              |select(main@%shadow.mem.17.2, @__seahorn_UAF_end)_0|))
+       (=> (and main@__seahorn_UAF_use_prehook4_0 main@orig.main.exit_0)
+           (= |select(main@%shadow.mem.8.2, @__seahorn_UAF_active)_9|
+              |select(main@%shadow.mem.8.2, @__seahorn_UAF_active)_0|))
+       (=> (and main@__seahorn_UAF_use_prehook4_0 main@orig.main.exit_0)
+           (= |select(main@%shadow.mem.25.1, @__seahorn_UAF_freed)_9|
+              |select(main@%shadow.mem.25.1, @__seahorn_UAF_freed)_0|))
+       (=> (and main@__seahorn_UAF_use_prehook4_0 main@orig.main.exit_0)
+           (= |select(main@%shadow.mem.9.1, @__seahorn_UAF_bgn)_9|
+              |select(main@%shadow.mem.9.1, @__seahorn_UAF_bgn)_0|))
+       (=> (and main@__seahorn_UAF_use_prehook4_0 main@orig.main.exit_0)
+           (= main@%.0_9 main@%.0_0))
+       (=> |tuple(main@postcall13_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= main@%shadow.mem.26.1_9 main@%shadow.mem.26.1_1))
+       (=> |tuple(main@postcall13_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.17.2, @__seahorn_UAF_end)_9|
+              |select(main@%shadow.mem.17.2, @__seahorn_UAF_end)_1|))
+       (=> |tuple(main@postcall13_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.8.2, @__seahorn_UAF_active)_9|
+              |select(main@%shadow.mem.8.2, @__seahorn_UAF_active)_1|))
+       (=> |tuple(main@postcall13_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.25.1, @__seahorn_UAF_freed)_9|
+              |select(main@%shadow.mem.25.1, @__seahorn_UAF_freed)_1|))
+       (=> |tuple(main@postcall13_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.9.1, @__seahorn_UAF_bgn)_9|
+              |select(main@%shadow.mem.9.1, @__seahorn_UAF_bgn)_1|))
+       (=> |tuple(main@postcall13_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= main@%.0_9 main@%.0_1))
+       (=> |tuple(main@postcall11_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= main@%shadow.mem.26.1_9 main@%shadow.mem.26.1_2))
+       (=> |tuple(main@postcall11_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.17.2, @__seahorn_UAF_end)_9|
+              |select(main@%shadow.mem.17.2, @__seahorn_UAF_end)_2|))
+       (=> |tuple(main@postcall11_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.8.2, @__seahorn_UAF_active)_9|
+              |select(main@%shadow.mem.8.2, @__seahorn_UAF_active)_2|))
+       (=> |tuple(main@postcall11_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.25.1, @__seahorn_UAF_freed)_9|
+              |select(main@%shadow.mem.25.1, @__seahorn_UAF_freed)_2|))
+       (=> |tuple(main@postcall11_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.9.1, @__seahorn_UAF_bgn)_9|
+              |select(main@%shadow.mem.9.1, @__seahorn_UAF_bgn)_2|))
+       (=> |tuple(main@postcall11_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= main@%.0_9 main@%.0_2))
+       (=> |tuple(main@postcall9_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= main@%shadow.mem.26.1_9 main@%shadow.mem.26.1_3))
+       (=> |tuple(main@postcall9_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.17.2, @__seahorn_UAF_end)_9|
+              |select(main@%shadow.mem.17.2, @__seahorn_UAF_end)_3|))
+       (=> |tuple(main@postcall9_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.8.2, @__seahorn_UAF_active)_9|
+              |select(main@%shadow.mem.8.2, @__seahorn_UAF_active)_3|))
+       (=> |tuple(main@postcall9_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.25.1, @__seahorn_UAF_freed)_9|
+              |select(main@%shadow.mem.25.1, @__seahorn_UAF_freed)_3|))
+       (=> |tuple(main@postcall9_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.9.1, @__seahorn_UAF_bgn)_9|
+              |select(main@%shadow.mem.9.1, @__seahorn_UAF_bgn)_3|))
+       (=> |tuple(main@postcall9_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= main@%.0_9 main@%.0_3))
+       (=> |tuple(main@postcall7_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= main@%shadow.mem.26.1_9 main@%shadow.mem.26.1_4))
+       (=> |tuple(main@postcall7_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.17.2, @__seahorn_UAF_end)_9|
+              |select(main@%shadow.mem.17.2, @__seahorn_UAF_end)_4|))
+       (=> |tuple(main@postcall7_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.8.2, @__seahorn_UAF_active)_9|
+              |select(main@%shadow.mem.8.2, @__seahorn_UAF_active)_4|))
+       (=> |tuple(main@postcall7_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.25.1, @__seahorn_UAF_freed)_9|
+              |select(main@%shadow.mem.25.1, @__seahorn_UAF_freed)_4|))
+       (=> |tuple(main@postcall7_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.9.1, @__seahorn_UAF_bgn)_9|
+              |select(main@%shadow.mem.9.1, @__seahorn_UAF_bgn)_4|))
+       (=> |tuple(main@postcall7_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= main@%.0_9 main@%.0_4))
+       (=> |tuple(main@_23_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= main@%shadow.mem.26.1_9 main@%shadow.mem.26.1_5))
+       (=> |tuple(main@_23_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.17.2, @__seahorn_UAF_end)_9|
+              |select(main@%shadow.mem.17.2, @__seahorn_UAF_end)_5|))
+       (=> |tuple(main@_23_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.8.2, @__seahorn_UAF_active)_9|
+              |select(main@%shadow.mem.8.2, @__seahorn_UAF_active)_5|))
+       (=> |tuple(main@_23_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.25.1, @__seahorn_UAF_freed)_9|
+              |select(main@%shadow.mem.25.1, @__seahorn_UAF_freed)_5|))
+       (=> |tuple(main@_23_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.9.1, @__seahorn_UAF_bgn)_9|
+              |select(main@%shadow.mem.9.1, @__seahorn_UAF_bgn)_5|))
+       (=> |tuple(main@_23_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= main@%.0_9 main@%.0_5))
+       (=> |tuple(main@postcall3_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= main@%shadow.mem.26.1_9 main@%shadow.mem.26.1_6))
+       (=> |tuple(main@postcall3_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.17.2, @__seahorn_UAF_end)_9|
+              |select(main@%shadow.mem.17.2, @__seahorn_UAF_end)_6|))
+       (=> |tuple(main@postcall3_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.8.2, @__seahorn_UAF_active)_9|
+              |select(main@%shadow.mem.8.2, @__seahorn_UAF_active)_6|))
+       (=> |tuple(main@postcall3_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.25.1, @__seahorn_UAF_freed)_9|
+              |select(main@%shadow.mem.25.1, @__seahorn_UAF_freed)_6|))
+       (=> |tuple(main@postcall3_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.9.1, @__seahorn_UAF_bgn)_9|
+              |select(main@%shadow.mem.9.1, @__seahorn_UAF_bgn)_6|))
+       (=> |tuple(main@postcall3_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= main@%.0_9 main@%.0_6))
+       (=> |tuple(main@__seahorn_UAF_malloc4.exit_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= main@%shadow.mem.26.1_9 main@%shadow.mem.26.1_7))
+       (=> |tuple(main@__seahorn_UAF_malloc4.exit_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.17.2, @__seahorn_UAF_end)_9|
+              |select(main@%shadow.mem.17.2, @__seahorn_UAF_end)_7|))
+       (=> |tuple(main@__seahorn_UAF_malloc4.exit_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.8.2, @__seahorn_UAF_active)_9|
+              |select(main@%shadow.mem.8.2, @__seahorn_UAF_active)_7|))
+       (=> |tuple(main@__seahorn_UAF_malloc4.exit_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.25.1, @__seahorn_UAF_freed)_9|
+              |select(main@%shadow.mem.25.1, @__seahorn_UAF_freed)_7|))
+       (=> |tuple(main@__seahorn_UAF_malloc4.exit_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.9.1, @__seahorn_UAF_bgn)_9|
+              |select(main@%shadow.mem.9.1, @__seahorn_UAF_bgn)_7|))
+       (=> |tuple(main@__seahorn_UAF_malloc4.exit_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= main@%.0_9 main@%.0_7))
+       (=> |tuple(main@entry_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= main@%shadow.mem.26.1_9 main@%shadow.mem.26.1_8))
+       (=> |tuple(main@entry_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.17.2, @__seahorn_UAF_end)_9|
+              |select(main@%shadow.mem.17.2, @__seahorn_UAF_end)_8|))
+       (=> |tuple(main@entry_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.8.2, @__seahorn_UAF_active)_9|
+              |select(main@%shadow.mem.8.2, @__seahorn_UAF_active)_8|))
+       (=> |tuple(main@entry_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.25.1, @__seahorn_UAF_freed)_9|
+              |select(main@%shadow.mem.25.1, @__seahorn_UAF_freed)_8|))
+       (=> |tuple(main@entry_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= |select(main@%shadow.mem.9.1, @__seahorn_UAF_bgn)_9|
+              |select(main@%shadow.mem.9.1, @__seahorn_UAF_bgn)_8|))
+       (=> |tuple(main@entry_0, main@__seahorn_UAF_use_prehook4_0)|
+           (= main@%.0_9 main@%.0_8))
+       a!9
+       (=> main@__seahorn_UAF_use_prehook4_0 main@%.b.i_0)
+       (=> main@__seahorn_UAF_use_prehook4_0
+           (= main@%_50_0 |select(main@%shadow.mem.9.1, @__seahorn_UAF_bgn)_9|))
+       (=> main@__seahorn_UAF_use_prehook4_0
+           (= main@%_51_0 (bvuge main@%.0_9 main@%_50_0)))
+       (=> main@__seahorn_UAF_use_prehook4_0
+           (= main@%_52_0 |select(main@%shadow.mem.17.2, @__seahorn_UAF_end)_9|))
+       (=> main@__seahorn_UAF_use_prehook4_0
+           (= main@%_53_0 (bvule main@%.0_9 main@%_52_0)))
+       (=> main@__seahorn_UAF_use_prehook4_0
+           (= main@%_54_0 (and main@%_51_0 main@%_53_0)))
+       (=> main@__seahorn_UAF_use_prehook4_0 main@%_54_0)
+       (=> main@__seahorn_UAF_use_prehook4_0 main@%_53_0)
+       a!10
+       (=> main@__seahorn_UAF_use_prehook4_0 main@%.b1.i_0)
+       (=> main@verifier.error_0
+           (or (and main@verifier.error_0 main@__seahorn_UAF_use_prehook4_0)
+               (and main@verifier.error_0 main@precall18_0)))
+       (=> (and main@verifier.error_0 main@__seahorn_UAF_use_prehook4_0)
+           (= main@%shadow.mem.26.2_0 main@%shadow.mem.26.1_9))
+       (=> (and main@verifier.error_0 main@__seahorn_UAF_use_prehook4_0)
+           (= |select(main@%shadow.mem.17.3, @__seahorn_UAF_end)_0|
+              |select(main@%shadow.mem.17.2, @__seahorn_UAF_end)_9|))
+       (=> (and main@verifier.error_0 main@__seahorn_UAF_use_prehook4_0)
+           (= |select(main@%shadow.mem.8.3, @__seahorn_UAF_active)_0|
+              |select(main@%shadow.mem.8.2, @__seahorn_UAF_active)_9|))
+       (=> (and main@verifier.error_0 main@__seahorn_UAF_use_prehook4_0)
+           (= |select(main@%shadow.mem.25.2, @__seahorn_UAF_freed)_0|
+              |select(main@%shadow.mem.25.1, @__seahorn_UAF_freed)_9|))
+       (=> (and main@verifier.error_0 main@__seahorn_UAF_use_prehook4_0)
+           (= |select(main@%shadow.mem.9.2, @__seahorn_UAF_bgn)_0|
+              |select(main@%shadow.mem.9.1, @__seahorn_UAF_bgn)_9|))
+       (=> (and main@verifier.error_0 main@precall18_0)
+           (= main@%shadow.mem.26.2_1 main@%sh54_0))
+       (=> (and main@verifier.error_0 main@precall18_0)
+           (= |select(main@%shadow.mem.17.3, @__seahorn_UAF_end)_1|
+              |select(main@%sh53, @__seahorn_UAF_end)_0|))
+       (=> (and main@verifier.error_0 main@precall18_0)
+           (= |select(main@%shadow.mem.8.3, @__seahorn_UAF_active)_1|
+              |select(main@%sh52, @__seahorn_UAF_active)_0|))
+       (=> (and main@verifier.error_0 main@precall18_0)
+           (= |select(main@%shadow.mem.25.2, @__seahorn_UAF_freed)_1|
+              |select(main@%sh51, @__seahorn_UAF_freed)_0|))
+       (=> (and main@verifier.error_0 main@precall18_0)
+           (= |select(main@%shadow.mem.9.2, @__seahorn_UAF_bgn)_1|
+              |select(main@%sh50, @__seahorn_UAF_bgn)_0|))
+       (=> (and main@verifier.error_0 main@__seahorn_UAF_use_prehook4_0)
+           (= main@%shadow.mem.26.2_2 main@%shadow.mem.26.2_0))
+       (=> (and main@verifier.error_0 main@__seahorn_UAF_use_prehook4_0)
+           (= |select(main@%shadow.mem.17.3, @__seahorn_UAF_end)_2|
+              |select(main@%shadow.mem.17.3, @__seahorn_UAF_end)_0|))
+       (=> (and main@verifier.error_0 main@__seahorn_UAF_use_prehook4_0)
+           (= |select(main@%shadow.mem.8.3, @__seahorn_UAF_active)_2|
+              |select(main@%shadow.mem.8.3, @__seahorn_UAF_active)_0|))
+       (=> (and main@verifier.error_0 main@__seahorn_UAF_use_prehook4_0)
+           (= |select(main@%shadow.mem.25.2, @__seahorn_UAF_freed)_2|
+              |select(main@%shadow.mem.25.2, @__seahorn_UAF_freed)_0|))
+       (=> (and main@verifier.error_0 main@__seahorn_UAF_use_prehook4_0)
+           (= |select(main@%shadow.mem.9.2, @__seahorn_UAF_bgn)_2|
+              |select(main@%shadow.mem.9.2, @__seahorn_UAF_bgn)_0|))
+       (=> (and main@verifier.error_0 main@precall18_0)
+           (= main@%shadow.mem.26.2_2 main@%shadow.mem.26.2_1))
+       (=> (and main@verifier.error_0 main@precall18_0)
+           (= |select(main@%shadow.mem.17.3, @__seahorn_UAF_end)_2|
+              |select(main@%shadow.mem.17.3, @__seahorn_UAF_end)_1|))
+       (=> (and main@verifier.error_0 main@precall18_0)
+           (= |select(main@%shadow.mem.8.3, @__seahorn_UAF_active)_2|
+              |select(main@%shadow.mem.8.3, @__seahorn_UAF_active)_1|))
+       (=> (and main@verifier.error_0 main@precall18_0)
+           (= |select(main@%shadow.mem.25.2, @__seahorn_UAF_freed)_2|
+              |select(main@%shadow.mem.25.2, @__seahorn_UAF_freed)_1|))
+       (=> (and main@verifier.error_0 main@precall18_0)
+           (= |select(main@%shadow.mem.9.2, @__seahorn_UAF_bgn)_2|
+              |select(main@%shadow.mem.9.2, @__seahorn_UAF_bgn)_1|))
+       (=> main@verifier.error.split_0
+           (and main@verifier.error.split_0 main@verifier.error_0))
+       main@verifier.error.split_0)))
+(check-sat)

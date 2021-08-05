@@ -26,6 +26,10 @@ enum versionEnum {
   UAF1, UAF2, UAF3, UAF4
 };
 
+/*enum memsetWidthEnum {
+  memset, m64
+};*/
+
 cl::opt<bitWidthEnum> bitWidth(cl::desc("Choose the bit width:"),
   cl::values(
     clEnumVal(m32, "32 bits"),
@@ -48,6 +52,7 @@ namespace {
     instrUAF() : ModulePass(ID) {}
     private:
     //BuilderTy builder;
+    Instruction *toRemove;
     Function *use_prehook;
     Function *instrumentedMalloc;
     Function *mallocPostHook;
@@ -64,7 +69,6 @@ namespace {
     
     CallInst *instrumentAlloca(AllocaInst *AI, IRBuilder<> builder, Module &M){
       Type *allocatedType=AI->getAllocatedType();
-      //allocatedType->print(errs());
       DataLayout layout(&M);
       int typeSize = layout.getTypeAllocSize(allocatedType);
       //errs() << "\ntype size: " << typeSize << "\n";
@@ -82,32 +86,28 @@ namespace {
       else
         castedCall = builder.CreateBitCast(callInst, allocatedType->getPointerTo());
       AI->replaceAllUsesWith(castedCall);
+      toRemove=AI;
       return callInst;
     }
     
     void freeStackVariables(IRBuilder<> builder, std::stack<CallInst*> &freeList){
-      //if(freeList.empty())
-        //errs() << "Nothing to free in this function\n";
       while(!freeList.empty()){
         CallInst* allocedVar = freeList.top();
-        //errs() << "Created free\n";
         freeList.pop();
         builder.CreateCall(instrumentedFree, allocedVar);
       }
     }
     
-    /*void instrumentMalloc(CallBase *CB, IRBuilder<> builder){
-      Value *args[2];
-      args[0]=CB;
-      args[1]=CB->getCalledOperand();
-      builder.CreateCall(mallocPostHook, args);
-    }*/
-    
     public:
     int instrumentFunction(Function &F, Module &M){
+      toRemove=NULL;
       //errs() << "Instrumenting function" << F.getName(); 
       std::stack<CallInst*> freeList;
       for (auto i = inst_begin(F), e = inst_end(F); i != e; ++i) {
+        if(toRemove){
+          toRemove->removeFromParent();
+          toRemove=NULL;
+        }
         Instruction *I = &*i;
         IRBuilder<> builder(I);
         builder.SetInsertPoint(I);
@@ -129,6 +129,10 @@ namespace {
             freeStackVariables(builder, freeList);
           }
         }
+      }
+      if(toRemove){
+        toRemove->removeFromParent();
+        toRemove=NULL;
       }
       return 0;
     }
@@ -165,8 +169,8 @@ namespace {
           break;
       }
       //mallocPostHook = M.getFunction("__seahorn_UAF_mallocPostHook");
-      instrumentedMemset = M.getFunction("__seahorn_UAF_memset");
-      instrumentedMemcpy = M.getFunction("__seahorn_UAF_memcpy");
+      instrumentedMemset = M.getFunction("__seahorn_UAF_memset_fake");
+      instrumentedMemcpy = M.getFunction("__seahorn_UAF_memcpy_fake");
       if(Function *malloc = M.getFunction("malloc")){
         malloc->replaceAllUsesWith(instrumentedMalloc);
         malloc->eraseFromParent();
